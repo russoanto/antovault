@@ -148,6 +148,11 @@
   },
   "active": "e863f87df3dd1242",
   "lastOpenFiles": [
+    "2d_detection/Scheletro.md",
+    "2d_detection/State of the art 2d.md",
+    "kernel_static_antivirus/Roadmap.md",
+    "Sicurezza Informatica/Domande più probabili.md",
+    "Crittografia_Applicata/openmls_simple_example/doc/Messaging Layer Security.md",
     "Crittografia_Applicata/openmls_simple_example/doc/papers/treekem.pdf",
     "Crittografia_Applicata/openmls_simple_example/doc/papers/2022-1732.pdf",
     "Crittografia_Applicata/openmls_simple_example/doc/papers",
@@ -159,16 +164,10 @@
     "Crittografia_Applicata/openmls_simple_example/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/ey871083jni125qdjchtzqu5s.o",
     "Crittografia_Applicata/openmls_simple_example/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/eouzdmrp1on2cmed5akhh8eu4.o",
     "Crittografia_Applicata/openmls_simple_example/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/e8p4smaxo3l4v20ssvqcibqos.o",
-    "Crittografia_Applicata/openmls_simple_example/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/e0qn8swp1xwy84lnicrpe64xl.o",
     "Crittografia_Applicata/openmls_simple_example/doc/img/mls-array.png",
     "Crittografia_Applicata/openmls_simple_example/doc/img/Cryptographic State and Evolution.png",
     "Crittografia_Applicata/openmls_simple_example/doc/img/Screenshot from 2024-08-25 12-05-17.png",
     "img/RFC 9420_ The Messaging Layer Security (MLS) Protocol_files.md",
-    "Crittografia_Applicata/openmls_simple_example/doc/Messaging Layer Security.md",
-    "2d_detection/State of the art 2d.md",
-    "kernel_static_antivirus/Roadmap.md",
-    "2d_detection/Scheletro.md",
-    "Sicurezza Informatica/Domande più probabili.md",
     "Welcome.md"
   ]
 }
