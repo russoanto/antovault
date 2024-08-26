@@ -1,0 +1,3 @@
+[submodule "cpa/cpa_openmls_project"]
+	path = cpa/cpa_openmls_project
+	url = git@github.com:russoanto/cpa_openmls_project.git
