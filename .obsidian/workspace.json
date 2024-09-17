@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "1caa12728c2f51a2",
+        "id": "78ea4ce5a7fc5232",
         "type": "tabs",
         "children": [
           {
-            "id": "e863f87df3dd1242",
+            "id": "a647af4139905a44",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2d_detection/Scheletro.md",
+                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2d_detection/Scheletro.md",
+                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2d_detection/Scheletro.md",
+                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2d_detection/Scheletro.md"
+                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md"
               }
             }
           }
@@ -146,33 +146,49 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e863f87df3dd1242",
+  "active": "a647af4139905a44",
   "lastOpenFiles": [
+    "cpa/cpa_openmls_project/doc/Messaging Layer Security.md",
+    "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
+    "Automotive Connectivity",
+    "cpa/cpa_openmls_project/doc/TreeSync.md",
+    "cpa/cpa_openmls_project/doc/Discorso.md",
+    "cpa/cpa_openmls_project/target/debug/deps/openmls_simple_example-a0d0135cf4a00a4a",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/work-products.bin",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/query-cache.bin",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/f41yk088gl045c5zp8ucmfr5w.o",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/f3rb5ucgkzv5bzwkel1h6009g.o",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/f1w7n3vfybmxjc9zcknf3hfvu.o",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/ezui8y2zxjdv6defbw0yqt4pq.o",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/eznx76cpqhxq1cb6f8mjyn1s9.o",
+    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/ev7bwi9j9a6kwvpb7htexmyva.o",
+    "cpa/cpa_openmls_project/doc/TreeDEM.md",
+    "cpa/cpa_openmls_project/README.md",
+    "cpa/cpa_openmls_project/doc/Key Schedule.md",
+    "cpa/cpa_openmls_project/doc/Parte Sperimentale.md",
+    "cpa/cpa_openmls_project/doc/img/complete_tree.gif",
+    "Sicurezza Informatica/Domande più probabili.md",
+    "Welcome.md",
+    "OS/antOS/README.md",
+    "OS/Test.md",
+    "os/Roadmap.md",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/derivePP.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/Pasted image.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/encrP2.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/generateTreeKem.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/finalTreeKEM.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/treeART.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/final_attempt_update.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/final_attempt_4.png",
+    "cpa/cpa_openmls_project/doc/img/tree_sync/final_attempt_3.png",
+    "Untitled.md",
+    "caption.md",
+    "2d_detection/Scheletro.md",
+    "Crittografia_Applicata/cpa_openmls_project/doc/Messaging Layer Security.md",
     "Crittografia_Applicata/cpa_openmls_project/README.md",
     "Crittografia_Applicata/openmls_simple_example/doc/Messaging Layer Security.md",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3cbsni1vnhs9c/s-gzb8suys8n-0cjjldw-working/dep-graph.part.bin",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/work-products.bin",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/query-cache.bin",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/f5czwe07c2smxjuwoo9qms9nu.o",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/ey871083jni125qdjchtzqu5s.o",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/eouzdmrp1on2cmed5akhh8eu4.o",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/e8p4smaxo3l4v20ssvqcibqos.o",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/e3b0v01c39ze1iogphp5sejql.o",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/e0qn8swp1xwy84lnicrpe64xl.o",
-    "Crittografia_Applicata/cpa_openmls_project/target/debug/incremental/openmls_simple_example-30lbn0sqq5kag/s-gzcd1f3zu6-17265pp-0aqpoph0csqnuy2jjn1unb29m/dep-graph.bin",
-    "Crittografia_Applicata/cpa_openmls_project/doc/img/mls-array.png",
-    "Crittografia_Applicata/cpa_openmls_project/doc/img/mls-array-tree.png",
-    "Crittografia_Applicata/cpa_openmls_project/doc/img/Cryptographic State and Evolution.png",
-    "Crittografia_Applicata/cpa_openmls_project/doc/Messaging Layer Security.md",
-    "2d_detection/Scheletro.md",
     "2d_detection/State of the art 2d.md",
     "kernel_static_antivirus/Roadmap.md",
-    "Sicurezza Informatica/Domande più probabili.md",
-    "Crittografia_Applicata/openmls_simple_example/doc/img/mls-array-tree.png",
-    "Crittografia_Applicata/openmls_simple_example/doc/img/mls-array.png",
-    "Crittografia_Applicata/openmls_simple_example/doc/img/Cryptographic State and Evolution.png",
-    "Crittografia_Applicata/openmls_simple_example/doc/img/Screenshot from 2024-08-25 12-05-17.png",
-    "img/RFC 9420_ The Messaging Layer Security (MLS) Protocol_files.md",
-    "Welcome.md"
+    "img/RFC 9420_ The Messaging Layer Security (MLS) Protocol_files.md"
   ]
 }
