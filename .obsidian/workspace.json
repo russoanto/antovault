@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "78ea4ce5a7fc5232",
+        "id": "ad1b68d091b5d3d9",
         "type": "tabs",
         "children": [
           {
-            "id": "a647af4139905a44",
+            "id": "55f6b6b13cfe6a90",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
+                "file": "IoT/IoT Scenario.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "40ed925a0582be89",
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
+                "file": "IoT/IoT Scenario.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
+                "file": "IoT/IoT Scenario.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Automotive Connectivity/Modulo 1 - Intra Vehicle.md"
+                "file": "IoT/IoT Scenario.md"
               }
             }
           }
@@ -146,28 +146,45 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a647af4139905a44",
+  "active": "55f6b6b13cfe6a90",
   "lastOpenFiles": [
-    "cpa/cpa_openmls_project/doc/Messaging Layer Security.md",
+    "Kernel Hacking/Introduzione.md",
+    "Automotive CYber Security/Introduzione.md",
+    "Kernel Hacking",
+    "Automotive CYber Security/pdf/03-Attack surface.pdf",
+    "Automotive CYber Security/pdf/02-birds-eye defenses.pdf",
+    "Automotive CYber Security/pdf/01-Introduction.pdf",
+    "Automotive CYber Security/pdf",
+    "Automotive CYber Security",
+    "Algoritmi distribuiti/Lezione 1.md",
+    "Algoritmi distribuiti",
+    "IoT/IoT Scenario.md",
+    "IoT/Introduzione.md",
+    "Automotive Connectivity/M1 - L3.md",
+    "IoT",
+    "Automotive Connectivity/img/addizione_pol.png",
+    "Automotive Connectivity/img/Pasted image.png",
+    "Automotive Connectivity/img/bitwise.png",
+    "Automotive Connectivity/img/and_table.png",
+    "Automotive Connectivity/img/and_bus.png",
+    "Automotive Connectivity/img/can_msg.png",
+    "Automotive Connectivity/img",
+    "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
+    "Automotive Connectivity/pdf/M1L4_part1.pdf",
+    "ost2/secure_dev/CVE-2018-9318/CVE-2018-9318.md",
+    "ost2/secure_dev/CVE-2020-0917/CVE-2021-20294.md",
+    "ost2/secure_dev/CVE-2020-0917.md",
+    "ost2/secure_dev/vulns1001_c_implementation_vulns_slides_and_subtitles/README.md",
     "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
-    "Automotive Connectivity",
+    "Sicurezza Informatica/Domande più probabili.md",
+    "cpa/cpa_openmls_project/doc/Messaging Layer Security.md",
     "cpa/cpa_openmls_project/doc/TreeSync.md",
     "cpa/cpa_openmls_project/doc/Discorso.md",
-    "cpa/cpa_openmls_project/target/debug/deps/openmls_simple_example-a0d0135cf4a00a4a",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/work-products.bin",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/query-cache.bin",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/f41yk088gl045c5zp8ucmfr5w.o",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/f3rb5ucgkzv5bzwkel1h6009g.o",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/f1w7n3vfybmxjc9zcknf3hfvu.o",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/ezui8y2zxjdv6defbw0yqt4pq.o",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/eznx76cpqhxq1cb6f8mjyn1s9.o",
-    "cpa/cpa_openmls_project/target/debug/incremental/openmls_simple_example-3r9k0zkq9of62/s-gzpvsv7qae-1eroxaj-a5sbzc3oqj6xxmov8mupc5npf/ev7bwi9j9a6kwvpb7htexmyva.o",
     "cpa/cpa_openmls_project/doc/TreeDEM.md",
     "cpa/cpa_openmls_project/README.md",
     "cpa/cpa_openmls_project/doc/Key Schedule.md",
     "cpa/cpa_openmls_project/doc/Parte Sperimentale.md",
     "cpa/cpa_openmls_project/doc/img/complete_tree.gif",
-    "Sicurezza Informatica/Domande più probabili.md",
     "Welcome.md",
     "OS/antOS/README.md",
     "OS/Test.md",
@@ -175,20 +192,7 @@
     "cpa/cpa_openmls_project/doc/img/tree_sync/derivePP.png",
     "cpa/cpa_openmls_project/doc/img/tree_sync/Pasted image.png",
     "cpa/cpa_openmls_project/doc/img/tree_sync/encrP2.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/generateTreeKem.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/finalTreeKEM.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/treeART.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/final_attempt_update.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/final_attempt_4.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/final_attempt_3.png",
     "Untitled.md",
-    "caption.md",
-    "2d_detection/Scheletro.md",
-    "Crittografia_Applicata/cpa_openmls_project/doc/Messaging Layer Security.md",
-    "Crittografia_Applicata/cpa_openmls_project/README.md",
-    "Crittografia_Applicata/openmls_simple_example/doc/Messaging Layer Security.md",
-    "2d_detection/State of the art 2d.md",
-    "kernel_static_antivirus/Roadmap.md",
-    "img/RFC 9420_ The Messaging Layer Security (MLS) Protocol_files.md"
+    "caption.md"
   ]
 }

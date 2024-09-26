@@ -1,2 +1,0 @@
-# Crittografia Applicata
-
