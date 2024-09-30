@@ -1,0 +1,1 @@
+Parliamo delle varie board disponibili tra cui anche i sensori e attuatori.

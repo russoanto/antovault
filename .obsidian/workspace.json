@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "IoT/IoT Scenario.md",
+                "file": "Kernel Hacking/Tutorial -  Compilazione.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "IoT/IoT Scenario.md",
+                "file": "Kernel Hacking/Tutorial -  Compilazione.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "IoT/IoT Scenario.md",
+                "file": "Kernel Hacking/Tutorial -  Compilazione.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "IoT/IoT Scenario.md"
+                "file": "Kernel Hacking/Tutorial -  Compilazione.md"
               }
             }
           }
@@ -149,6 +149,19 @@
   "active": "55f6b6b13cfe6a90",
   "lastOpenFiles": [
     "Kernel Hacking/Introduzione.md",
+    "Kernel Hacking/Tutorial -  Compilazione.md",
+    "Algoritmi distribuiti/Lezione 1.md",
+    "Automotive Connectivity/M1 - L4.md",
+    "Automotive Connectivity/M1 - L3.md",
+    "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
+    "IoT/Boards.md",
+    "IoT/Ubiquitous Computing and Context Aware Systems.md",
+    "IoT/Use Case.md",
+    "IoT/IoT Scenario.md",
+    "IoT/pdf/ubiquitous_computing.pdf",
+    "IoT/pdf/use_case.pdf",
+    "IoT/pdf/scenario.pdf",
+    "IoT/pdf",
     "Automotive CYber Security/Introduzione.md",
     "Kernel Hacking",
     "Automotive CYber Security/pdf/03-Attack surface.pdf",
@@ -156,21 +169,13 @@
     "Automotive CYber Security/pdf/01-Introduction.pdf",
     "Automotive CYber Security/pdf",
     "Automotive CYber Security",
-    "Algoritmi distribuiti/Lezione 1.md",
-    "Algoritmi distribuiti",
-    "IoT/IoT Scenario.md",
     "IoT/Introduzione.md",
-    "Automotive Connectivity/M1 - L3.md",
-    "IoT",
     "Automotive Connectivity/img/addizione_pol.png",
     "Automotive Connectivity/img/Pasted image.png",
     "Automotive Connectivity/img/bitwise.png",
     "Automotive Connectivity/img/and_table.png",
     "Automotive Connectivity/img/and_bus.png",
     "Automotive Connectivity/img/can_msg.png",
-    "Automotive Connectivity/img",
-    "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
-    "Automotive Connectivity/pdf/M1L4_part1.pdf",
     "ost2/secure_dev/CVE-2018-9318/CVE-2018-9318.md",
     "ost2/secure_dev/CVE-2020-0917/CVE-2021-20294.md",
     "ost2/secure_dev/CVE-2020-0917.md",
@@ -186,13 +191,8 @@
     "cpa/cpa_openmls_project/doc/Parte Sperimentale.md",
     "cpa/cpa_openmls_project/doc/img/complete_tree.gif",
     "Welcome.md",
-    "OS/antOS/README.md",
-    "OS/Test.md",
-    "os/Roadmap.md",
     "cpa/cpa_openmls_project/doc/img/tree_sync/derivePP.png",
     "cpa/cpa_openmls_project/doc/img/tree_sync/Pasted image.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/encrP2.png",
-    "Untitled.md",
-    "caption.md"
+    "cpa/cpa_openmls_project/doc/img/tree_sync/encrP2.png"
   ]
 }

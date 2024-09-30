@@ -8,3 +8,5 @@ Un kernel è un programma che gestisce tanti servizi, e che concettualmente è c
 ## Moduli
 Come fa il kernel a funzionare su tutti gli hardware esistenti?? Utilizza i moduli, che nell'ambito dqi sistemi operativi indica una porzione di codice che può essere linkato in maniera dinamica durante l'esecuzione del mio kernel. Il linking dinamico consiste no nell'andare a sostituire fisicamente roba ma dire "esegui una funzione che si trova nel file x". Alcune cose devono essere compilate con il kernel, ad esempio i driver del filesystem deve esserlo dato che altrimenti non sarei in grado di leggere il filesystem e quindi non sarei in grado di leggere gl altri moduli.
 
+
+
