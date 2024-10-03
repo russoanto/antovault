@@ -18,3 +18,4 @@ già ne abbiamo parlato
 ## Structural monitoring
 serie di sensori per analizzare vibrazioni, umidità etc..
 
+

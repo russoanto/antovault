@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ad1b68d091b5d3d9",
+        "id": "17d0a1fe231239e8",
         "type": "tabs",
         "children": [
           {
-            "id": "55f6b6b13cfe6a90",
+            "id": "a4db06c46170d69d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kernel Hacking/Tutorial -  Compilazione.md",
+                "file": "Algoritmi distribuiti/TSP.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Kernel Hacking/Tutorial -  Compilazione.md",
+                "file": "Algoritmi distribuiti/TSP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Kernel Hacking/Tutorial -  Compilazione.md",
+                "file": "Algoritmi distribuiti/TSP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kernel Hacking/Tutorial -  Compilazione.md"
+                "file": "Algoritmi distribuiti/TSP.md"
               }
             }
           }
@@ -146,17 +146,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "55f6b6b13cfe6a90",
+  "active": "a4db06c46170d69d",
   "lastOpenFiles": [
+    "Kernel Hacking/Kernel Module - hello world.md",
     "Kernel Hacking/Introduzione.md",
     "Kernel Hacking/Tutorial -  Compilazione.md",
+    "2d_detection/Roadmap detection and traking.md",
+    "2d_detection/pdf/2015IJRR_wang.pdf",
+    "2d_detection/pdf/bare_conf.pdf",
+    "2d_detection/pdf",
+    "Algoritmi distribuiti/Vertex Cover.md",
+    "Algoritmi distribuiti/Branch&Bound.md",
+    "Algoritmi distribuiti/img/branching_pt_1.png",
+    "Algoritmi distribuiti/img/Pasted image (2).png",
+    "Algoritmi distribuiti/img/Pasted image.png",
+    "Algoritmi distribuiti/img/cost_1_tree.png",
+    "Algoritmi distribuiti/img/es_b&b.png",
+    "Algoritmi distribuiti/img/b&b_tsp.png",
+    "Algoritmi distribuiti/img",
+    "IoT/Use Case.md",
+    "Algoritmi distribuiti/TSP.md",
     "Algoritmi distribuiti/Lezione 1.md",
     "Automotive Connectivity/M1 - L4.md",
     "Automotive Connectivity/M1 - L3.md",
     "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
     "IoT/Boards.md",
     "IoT/Ubiquitous Computing and Context Aware Systems.md",
-    "IoT/Use Case.md",
     "IoT/IoT Scenario.md",
     "IoT/pdf/ubiquitous_computing.pdf",
     "IoT/pdf/use_case.pdf",
@@ -165,17 +180,11 @@
     "Automotive CYber Security/Introduzione.md",
     "Kernel Hacking",
     "Automotive CYber Security/pdf/03-Attack surface.pdf",
-    "Automotive CYber Security/pdf/02-birds-eye defenses.pdf",
-    "Automotive CYber Security/pdf/01-Introduction.pdf",
-    "Automotive CYber Security/pdf",
-    "Automotive CYber Security",
     "IoT/Introduzione.md",
     "Automotive Connectivity/img/addizione_pol.png",
     "Automotive Connectivity/img/Pasted image.png",
     "Automotive Connectivity/img/bitwise.png",
     "Automotive Connectivity/img/and_table.png",
-    "Automotive Connectivity/img/and_bus.png",
-    "Automotive Connectivity/img/can_msg.png",
     "ost2/secure_dev/CVE-2018-9318/CVE-2018-9318.md",
     "ost2/secure_dev/CVE-2020-0917/CVE-2021-20294.md",
     "ost2/secure_dev/CVE-2020-0917.md",
@@ -184,15 +193,6 @@
     "Sicurezza Informatica/Domande più probabili.md",
     "cpa/cpa_openmls_project/doc/Messaging Layer Security.md",
     "cpa/cpa_openmls_project/doc/TreeSync.md",
-    "cpa/cpa_openmls_project/doc/Discorso.md",
-    "cpa/cpa_openmls_project/doc/TreeDEM.md",
-    "cpa/cpa_openmls_project/README.md",
-    "cpa/cpa_openmls_project/doc/Key Schedule.md",
-    "cpa/cpa_openmls_project/doc/Parte Sperimentale.md",
-    "cpa/cpa_openmls_project/doc/img/complete_tree.gif",
-    "Welcome.md",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/derivePP.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/Pasted image.png",
-    "cpa/cpa_openmls_project/doc/img/tree_sync/encrP2.png"
+    "cpa/cpa_openmls_project/doc/Discorso.md"
   ]
 }
