@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "17d0a1fe231239e8",
+        "id": "ef1f22df7ebc9123",
         "type": "tabs",
         "children": [
           {
-            "id": "a4db06c46170d69d",
+            "id": "2eb9a8ea6204d45a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algoritmi distribuiti/TSP.md",
+                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algoritmi distribuiti/TSP.md",
+                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algoritmi distribuiti/TSP.md",
+                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algoritmi distribuiti/TSP.md"
+                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md"
               }
             }
           }
@@ -146,8 +146,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a4db06c46170d69d",
+  "active": "2eb9a8ea6204d45a",
   "lastOpenFiles": [
+    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf",
+    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf.download",
+    "Algoritmi distribuiti/Vertex Cover.md",
+    "Algoritmi distribuiti/Teoria della computazione distribuita.md",
+    "Automotive Connectivity/M1 - L4.md",
+    "Automotive Connectivity/img/bit_coding_1.png",
+    "Automotive Connectivity/img/Pasted image.png",
+    "Automotive Connectivity/M1 - L3.md",
+    "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
+    "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
+    "Algoritmi distribuiti/Cabri/Intro.md",
+    "Algoritmi distribuiti/Cabri",
+    "Algoritmi distribuiti/TSP.md",
     "Kernel Hacking/Kernel Module - hello world.md",
     "Kernel Hacking/Introduzione.md",
     "Kernel Hacking/Tutorial -  Compilazione.md",
@@ -155,7 +168,6 @@
     "2d_detection/pdf/2015IJRR_wang.pdf",
     "2d_detection/pdf/bare_conf.pdf",
     "2d_detection/pdf",
-    "Algoritmi distribuiti/Vertex Cover.md",
     "Algoritmi distribuiti/Branch&Bound.md",
     "Algoritmi distribuiti/img/branching_pt_1.png",
     "Algoritmi distribuiti/img/Pasted image (2).png",
@@ -165,11 +177,7 @@
     "Algoritmi distribuiti/img/b&b_tsp.png",
     "Algoritmi distribuiti/img",
     "IoT/Use Case.md",
-    "Algoritmi distribuiti/TSP.md",
     "Algoritmi distribuiti/Lezione 1.md",
-    "Automotive Connectivity/M1 - L4.md",
-    "Automotive Connectivity/M1 - L3.md",
-    "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
     "IoT/Boards.md",
     "IoT/Ubiquitous Computing and Context Aware Systems.md",
     "IoT/IoT Scenario.md",
@@ -178,21 +186,13 @@
     "IoT/pdf/scenario.pdf",
     "IoT/pdf",
     "Automotive CYber Security/Introduzione.md",
-    "Kernel Hacking",
-    "Automotive CYber Security/pdf/03-Attack surface.pdf",
     "IoT/Introduzione.md",
     "Automotive Connectivity/img/addizione_pol.png",
-    "Automotive Connectivity/img/Pasted image.png",
     "Automotive Connectivity/img/bitwise.png",
-    "Automotive Connectivity/img/and_table.png",
     "ost2/secure_dev/CVE-2018-9318/CVE-2018-9318.md",
     "ost2/secure_dev/CVE-2020-0917/CVE-2021-20294.md",
     "ost2/secure_dev/CVE-2020-0917.md",
     "ost2/secure_dev/vulns1001_c_implementation_vulns_slides_and_subtitles/README.md",
-    "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
-    "Sicurezza Informatica/Domande più probabili.md",
-    "cpa/cpa_openmls_project/doc/Messaging Layer Security.md",
-    "cpa/cpa_openmls_project/doc/TreeSync.md",
-    "cpa/cpa_openmls_project/doc/Discorso.md"
+    "Sicurezza Informatica/Domande più probabili.md"
   ]
 }
