@@ -15,3 +15,11 @@ Le stampe del kernel hanno diversi livell di priorità, esistono delle macro per
 - pr_info("") è una di queste con un livello basso di priorità
 Agigungere un file di interfaccia sysfs da aggiungere al nostro modulo che ogni volta che viene letto aumenti un contatore e con la store resetti il contatore.
 
+___
+Il unix non esistono le cartelle, le directory sono dei file che contengono una lista di file.
+___
+Plumbing: nel kernel è usare il compilatore a mano inserendo le regole che poi inserirò in dei Makefile.
+___
+mrproper: si legge mister proper (è il mastrolindo americano)
+
+

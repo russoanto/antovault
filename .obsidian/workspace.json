@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ef1f22df7ebc9123",
+        "id": "be658acfc62dc458",
         "type": "tabs",
         "children": [
           {
-            "id": "2eb9a8ea6204d45a",
+            "id": "b5e483e0463180fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md",
+                "file": "Algoritmi distribuiti/Spanning Tree Construction.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "40ed925a0582be89",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md",
+                "file": "Algoritmi distribuiti/Spanning Tree Construction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md",
+                "file": "Algoritmi distribuiti/Spanning Tree Construction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,11 +126,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algoritmi distribuiti/Teoria della computazione distribuita.md"
+                "file": "Algoritmi distribuiti/Spanning Tree Construction.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -146,53 +148,54 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2eb9a8ea6204d45a",
+  "active": "b5e483e0463180fa",
   "lastOpenFiles": [
-    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf",
-    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf.download",
-    "Algoritmi distribuiti/Vertex Cover.md",
+    "Algoritmi distribuiti/Spanning Tree Construction.md",
     "Algoritmi distribuiti/Teoria della computazione distribuita.md",
+    "IoT/Messaging Protocol.md",
+    "IoT/Low power wide area network.md",
+    "IoT/IoT Scenario.md",
+    "Algoritmi distribuiti/Lezione 1.md",
+    "Algoritmi distribuiti/Branch&Bound.md",
+    "Untitled.canvas",
+    "Algoritmi distribuiti/Vertex Cover.md",
+    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf",
+    "Algoritmi distribuiti/Untitled mindmap.md",
+    "Untitled.md",
+    "IoT/Ubiquitous Computing and Context Aware Systems.md",
+    "IoT/Untitled mindmap.md",
+    "IoT/Use Case.md",
+    "IoT/WoT.md",
+    "IoT/img/ampq.png",
+    "IoT/img/Pasted image.png",
+    "IoT/img/qos.png",
+    "IoT/img/mqtt_publish.png",
+    "IoT/img/mqtt_msg.png",
+    "IoT/img/mqtt.png",
+    "IoT/img/obs.png",
+    "IoT/img/coap_mssg.png",
+    "Kernel Hacking/Git.md",
+    "Kernel Hacking/Kernel Module - hello world.md",
+    "Automotive CYber Security/CAN Bus.md",
+    "Automotive CYber Security/img/data_frame.png",
+    "Automotive CYber Security/img/Pasted image.png",
+    "Automotive CYber Security/img",
+    "IoT/img",
+    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf.download",
     "Automotive Connectivity/M1 - L4.md",
-    "Automotive Connectivity/img/bit_coding_1.png",
-    "Automotive Connectivity/img/Pasted image.png",
     "Automotive Connectivity/M1 - L3.md",
     "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
     "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
     "Algoritmi distribuiti/Cabri/Intro.md",
     "Algoritmi distribuiti/Cabri",
     "Algoritmi distribuiti/TSP.md",
-    "Kernel Hacking/Kernel Module - hello world.md",
     "Kernel Hacking/Introduzione.md",
     "Kernel Hacking/Tutorial -  Compilazione.md",
     "2d_detection/Roadmap detection and traking.md",
     "2d_detection/pdf/2015IJRR_wang.pdf",
     "2d_detection/pdf/bare_conf.pdf",
     "2d_detection/pdf",
-    "Algoritmi distribuiti/Branch&Bound.md",
-    "Algoritmi distribuiti/img/branching_pt_1.png",
-    "Algoritmi distribuiti/img/Pasted image (2).png",
-    "Algoritmi distribuiti/img/Pasted image.png",
-    "Algoritmi distribuiti/img/cost_1_tree.png",
-    "Algoritmi distribuiti/img/es_b&b.png",
-    "Algoritmi distribuiti/img/b&b_tsp.png",
     "Algoritmi distribuiti/img",
-    "IoT/Use Case.md",
-    "Algoritmi distribuiti/Lezione 1.md",
-    "IoT/Boards.md",
-    "IoT/Ubiquitous Computing and Context Aware Systems.md",
-    "IoT/IoT Scenario.md",
-    "IoT/pdf/ubiquitous_computing.pdf",
-    "IoT/pdf/use_case.pdf",
-    "IoT/pdf/scenario.pdf",
-    "IoT/pdf",
-    "Automotive CYber Security/Introduzione.md",
-    "IoT/Introduzione.md",
-    "Automotive Connectivity/img/addizione_pol.png",
-    "Automotive Connectivity/img/bitwise.png",
-    "ost2/secure_dev/CVE-2018-9318/CVE-2018-9318.md",
-    "ost2/secure_dev/CVE-2020-0917/CVE-2021-20294.md",
-    "ost2/secure_dev/CVE-2020-0917.md",
-    "ost2/secure_dev/vulns1001_c_implementation_vulns_slides_and_subtitles/README.md",
-    "Sicurezza Informatica/Domande più probabili.md"
+    "IoT/pdf/ubiquitous_computing.pdf"
   ]
 }
