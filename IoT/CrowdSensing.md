@@ -1,0 +1,43 @@
+- Si parla di una duplice operazione:
+	- **crowd**: chi registra le informazioni
+	- **sensing**: l'azione performata
+- In generle si parla di task eseguiti da degli individui per andare a fotografare fenomeni reali di interesse con l'utilizzo di dispositivi modbili connessi che ci permettono l'aggregazione delle informazioni registrate
+	- Il singolo dispositovo ha solo delle singole registrazioni, non ha il quadro dell'insieme
+- La pipline è la seguente:
+	- Creation
+	- Recruitment (dispositivi che fanno parte della mia rete di raccolta)
+	- Execution: raccolta di informazioni
+	- Verifica delle informazioni ottenute
+	- Pubblicazione
+- Ovviamente l'utente ci fornisce dei dati quindi si aspetta di essere remunerato in qualche modo.
+	- **Participatory**: se usi questo modello significa che la piattaforma chiederà de eseguire un task da parte dell'utente in maniera attiva.
+	- **Opportunistic**: i dati sono raccolti in backgroung, in questo caso l'utente non ha partecipazione attiva alla raccolta dati
+- Molte volte non è possibile kcotruire un infrastruttura adatta per determiante raccolte dati che coprono aree di grandi dimensioni (anche solo per una piccola città)
+	- A volte i requisiti cambiano nel tempo
+	- costi
+	- aree di randi dimensioni
+- Ovviamente avere un infrastruttura statica significa anche prevedere dove avverà il fenomeno e non sempre è possibile
+- Al 99% del tempo abbiamo mobile crowdsensing
+	- solitamente attraverso smartphone
+	- ovviamente può anche essere fatto tramite hardware specializzato
+- In base all'ambito applicativo abbiamo tassonomie differenti che possono essere:
+- ![[mcs_tax.png]]
+## Obiettivi di crowdsensing
+- Qualità dei dati e collezione dei dati
+	- come collezioniamo i dati  e come scartiamo i dati di bassa qualità
+- Reward
+	- nessuno fa cose gratis, quindi è fondamentale conpensare il lavoro di chi partecipa, se non si conpensa allora non si hanno abbastanza partecipanti per avere una buona qualità dei dati
+- Privacy
+	- quanto si riportano dati di un fenomeno allora stiamo dando anche informazioni su se stessi (dove si era, quando ect.. ). Quello che possiamo fare è ricompensare maggiormente gli utenti
+### Data quality e data noise
+- Quando collezzioni tantisimi dati è impossibile che tutti siano di buona qualità, alcuni dati sono più importanti di altri
+	- Alcuni utenti ci forniscono dati di migliore qualità quindi non ha senso tenere i dati di uno stesso fenomeno di qualcuno di scarsa qualità
+		- miglior forocamere, migliori sensori etcc
+	- Alcuni utenti riportano troppi dati
+		- non ha senso avere 10 foto di uno stesso fenomeno per ogni utente
+	- Alcuni dati non sono utili da tenere, anzi peggiornao la qualità dei risultati
+		- i sensori possono essere rumorosi e noi non vogliamo dati rumorosi nel nostro dataset
+- Partiamo dal capire **dove** dobbiamo collezionare i dati:
+	- **Before sensing**: sensor quality, frequency of change
+	- **Dopo avere catturato il valore**
+	- **nel cloud**: comparo i valori ottenuti con quelli di tutti gli altri

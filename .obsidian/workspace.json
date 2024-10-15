@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "be658acfc62dc458",
+        "id": "035174cd6c36bc95",
         "type": "tabs",
         "children": [
           {
-            "id": "b5e483e0463180fa",
+            "id": "0e6a94b94aa699c6",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -148,14 +148,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b5e483e0463180fa",
+  "active": "0e6a94b94aa699c6",
   "lastOpenFiles": [
+    "IoT/CrowdSensing.md",
+    "IoT/img/mcs_tax.png",
+    "IoT/img/Pasted image.png",
+    "IoT/WoT.md",
+    "IoT/pdf/crowd_sensing.pdf",
+    "IoT/pdf/document(6).pdf",
+    "IoT/pdf/WoT.pdf",
     "Algoritmi distribuiti/Spanning Tree Construction.md",
+    "Algoritmi distribuiti/pdf/SPT_construction.pdf",
+    "Algoritmi distribuiti/pdf",
+    "2d_detection/Adaptive Breakpoint Detector.md",
+    "Algoritmi distribuiti/TSP.md",
+    "Algoritmi distribuiti/Lezione 1.md",
     "Algoritmi distribuiti/Teoria della computazione distribuita.md",
     "IoT/Messaging Protocol.md",
     "IoT/Low power wide area network.md",
     "IoT/IoT Scenario.md",
-    "Algoritmi distribuiti/Lezione 1.md",
     "Algoritmi distribuiti/Branch&Bound.md",
     "Untitled.canvas",
     "Algoritmi distribuiti/Vertex Cover.md",
@@ -165,9 +176,7 @@
     "IoT/Ubiquitous Computing and Context Aware Systems.md",
     "IoT/Untitled mindmap.md",
     "IoT/Use Case.md",
-    "IoT/WoT.md",
     "IoT/img/ampq.png",
-    "IoT/img/Pasted image.png",
     "IoT/img/qos.png",
     "IoT/img/mqtt_publish.png",
     "IoT/img/mqtt_msg.png",
@@ -178,7 +187,6 @@
     "Kernel Hacking/Kernel Module - hello world.md",
     "Automotive CYber Security/CAN Bus.md",
     "Automotive CYber Security/img/data_frame.png",
-    "Automotive CYber Security/img/Pasted image.png",
     "Automotive CYber Security/img",
     "IoT/img",
     "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf.download",
@@ -187,15 +195,6 @@
     "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
     "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
     "Algoritmi distribuiti/Cabri/Intro.md",
-    "Algoritmi distribuiti/Cabri",
-    "Algoritmi distribuiti/TSP.md",
-    "Kernel Hacking/Introduzione.md",
-    "Kernel Hacking/Tutorial -  Compilazione.md",
-    "2d_detection/Roadmap detection and traking.md",
-    "2d_detection/pdf/2015IJRR_wang.pdf",
-    "2d_detection/pdf/bare_conf.pdf",
-    "2d_detection/pdf",
-    "Algoritmi distribuiti/img",
-    "IoT/pdf/ubiquitous_computing.pdf"
+    "Algoritmi distribuiti/Cabri"
   ]
 }
