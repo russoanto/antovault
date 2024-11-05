@@ -1,0 +1,213 @@
+- Allinizio abbiamo una sistuazione di completa simmetria in cui ogni nodo è uguale algi altri, noi vogliamo rompere questo stao in modo che un singolo nodo sia uno stato di leadership e gli altri siano follower. La conoscenza del lidere è esplicita. Ci portiamo in un contesto **asimmetrico**.
+- I risultati della leader election risalgono agli anni 80' ma che risultano ancora validi
+	- Cosa è stato trovato?
+		- Se consideriamo le seguenti assunzioni
+			- Bidirezionale
+			- Grafo connesso
+			- No fallimenti
+		- Non posso travare un algoritmo deterministico per la leader election, è un problema inrisolvibile A MENO CHE non si faccia uso di **identificativi univoci**.
+	- Il limite proncipale è che non c'è nessun elemento di asimmetria dato che tutti i nodi fanno la medesima cosa e non c'è nulla che posso utilizzare per rompere questa simmetria.
+- Leader election su **alberi**
+	- **rooted tree**
+		- Se so di essere su un albero (e ho una radice) allora la radice si elegge come leader, tutti gli altri nodi sanno che non sono la radice e quindi non si auto-eleggeranno.
+			- **MSG Complexity**:
+				- n_msgs = 0 (i nodi sanno se sono una root o se non lo sono)
+				- O(n): costo della notifica (semplicemente parte la saturzione)
+	- **Unrooted tree**
+		- L'elezione del leader avviene selezionando l'ID minore (ad esempio) e i vari id possono essere scambiati tramite la tecnica della saturazione
+			- **MSG Complexity**
+				- n_msgs <= 4n -4 (quello della saturazione)
+			- **MSG BIT Complexity**
+				- devo mandare un numero di bit tale che mi serva per distinguere le varie fasi di (convergcas, broadcast e quello per lo scambio di id tra i due nodi saturati)
+				- $$bits \in O(2 log(MAX\_{ID}+cn))$$
+	- Quello che si può notare è la relazione che c'è tra la leader election e lo spanning tree
+		- Dato uno spanning tree rooted, la leader election può essere fatta con O(n) messaggi di notifica
+		- Data una leader entity x di un grafo allora lo spanning tree può essere costruito utilizzato l'unico inizializzatore (x) con O(m) messaggi
+- Leader electcion su **ring**:
+	- Tradizionalmente il ring è stata una delle topologie più comuni quindi è stata anche molto studiata
+		- Ha un mimnimo di garanzie in più rispetto ad un albero, la disconnessione avviene con la rottura di due link (negli alberi ne basta uno), ovviamente in questo caso ho 1 link in più rispetto agli alberi
+	- Solo un entità deve essere selezionata, che deve quindi avere un identificativo univoco. Molti protocolli utilizzano come leader il nodo con l'ID minore (alcuni selezionano quello più grande ma logicamente non cambia nulla se non il numero di bit che mando).
+	- **All the way** (questo è il nome che è presente sul libro ma non quello universalmente riconosciuto)
+		- **Restrizioni**
+			- Link unidirezionali/bidirezionali
+			- Local orientation (non si ha concezione di destra e sinistra)
+			- ID univoci
+		- Se il singolo nodo conosce tutti gli ID degli altri allora può selezionare quello più piccolo, ma come fanno i nodi a sapere quelli degli altri? Per far circolare il mio id? lo mando al vicino che continuerà a mandarlo nello stesso verso, saprò che tutti i nodi conoscono il mio id quando lo ricevo nuovamente dal link opposto da quello di invio. Questa operazione viene fatta da tutti i nodi e può essere fatta contemporaneamente
+			- Ovviamente così tutti i nodi sanno se sono il leader o non lo sono.
+			- Un problema è che i singoli nodi possono selezionare il minimo solo quando sono sicuri di aver ricevuto tutti gli ID, ma come faccio a sapere se li ho visti tutti? 
+				- Devo conoscere il **numero di nodi**: questa conoscenza non è scontata, di base i nodi non conoscono il numero di nodi del grafi di cui fanno parte
+					- Con il mio mesaggio non è detto che gli debbamandare solamente l'identificativo ma posso mandargli anche un contatore che vine incrementato ogni volta che passa attraverso il nodo. Quando il nodo riceverà il suo ID nuovamente riceverà anche il contatore con il numero di nodi che ha attraversato che è pari al numero di nodi del grafo. OLtre aa questo contatore mantengo anche un contatore personale per il singolo nodo che incremento per ongi identificativo che ricevo, se la dimensione del contatore personale è minore del numero dei nodi allora so che non ho ricevuto tutti gli identificativi.
+					- **Algoritmo**
+						- **Asleep**
+							- Spontaneo
+								- Diventa (AWAKE)
+							- Riceve ("ID", counter)
+								- manda(ID, counter+1) all'altro
+								- MIN := min{MIN,ID}
+								- count := count + 1
+								- diventa(AWAKE)
+						- **Awake**
+							- ricevo(ID, counter)
+							- if(ID != id(x))
+								- manda(ID, counter+1) all'altro
+								- MIN := min{MIN,ID}
+								- count := count + 1
+								- if know == true
+									- **check**
+							- else
+								- ringsize := counter
+								- known := true
+								- **check**
+						- procedura di **check**
+							- if count == ringsize
+								- if MIN == id(x)
+									- diventa(LEADER)
+								- else
+									- diventa(FOLLOWER)
+					- **Message Complexity**
+						- Ho n messsaggi per ogni identificativo, visto che ci sono n identificativi il costo è di O(n^2)
+						- Il numero di bits è O(n^2 log(MaxID))
+					- **Time Complexity**
+						- La catena di messaggi più lunga che si può formare è quando ho un inizializzatore che sveglia tutti gli altri
+							- quindi per svegliarli tutti ho n-1 messaggi più n messaggi affichè il proprio messaggio torni indietro
+				- **FIFO**: faccio in modo che il messaggio che mando rimanga in coda ai messaggi dei nodi che lo seguono (il primo nodo manerà il messaggio che fungerà da "chiudifila per gli altri messaggi"). Quando una persona riceverà il proprio ID allora avrà ricevuto tutti gli ID.
+	- **As Far as it can**: l'idea è che se sono nel nodo e tengo traccia della cosa più piccola vista in questo momento allora la ri-mando mentre se trovo un valore più grande di me allora non lo rimando ma mando il mio(se non l'ho già fatto, altrimenti stoppo solamente il messaggio più grande)
+		- **Restrizioni**
+			- uni/bidirezionali
+			- local orientation
+			- id distinti
+		- Evitiamo di mandare messaggi con ID troppo grandi che non potrebbero mai diventare leader
+		- Può funzionare anche senza la conoscenza del numero di nodi
+		- L'unico che riceverà il suo messaggio è il leader, gli altri messaggi degli altri messaggi verranno scartati
+		- Questo protocollo termina con la notifica del leader
+		- **Codice:**
+			- **ASLEEP**
+				- spontaneamente
+					- manda ID al suo unico vicino
+					- aggiorna il minimo
+					- passo in stato AWAKE
+				- Ricevo un Election ID
+					- aggiorno il minimo
+					- if ID < min
+						- manda ID al vicino
+						- agiorno il vicino
+					- else
+						- mando id(x) al vicino
+					- diventa AWAKE
+			- **AWAKE**
+				- TODO: da completare slide 29
+		- **Message Complexity:** C'è sicuramente un messaggio che effettua tutto il giro, è il minimo, ma ovviamente non è il solo. Il secondo più piccolo potrebbe passare per tutti i link -1, visto che si fermerà al leader e così via. 
+			- $$\sum^{n}_{i=1}i = n*(n+1)2 -->\space\space O(n^2)$$
+		- **Time Complexity:** La catena più lunga di messaggi succede quando l'inizializzatore non è il leader ed è il secondo più piccolo
+			- $$n+(n-1)+n = O(n)$$
+			- TODO: guardare meglio
+	- **Controlled Distance (HS):** Io che sono candidato leader cerco di sconfiggere quelli di fianco a me, se sopravvivo cerco di sconfiggere quello un pò più lontani e così via. Il leader sconfiggerà tutti. L'idea è che ad ogni passo sconfiggo qualche candidato leader in più fino a che non ne rimarrà uno.
+		- **Assunzioni:**
+			- link bidirezionali
+			- reliability
+			- local orientation
+			- ID Distinit
+		- Algoritmo **passo iesimo**
+			- Ogni nodo è un **candidato leader**, ed ogni candidato leader invia un messaggio con il porprio ID in entrambe le direzioni
+			- Il messaggio viaggia finchè non incontra un ID più piccolo o raggiunge una distanza d_i = 2^i
+			- Se un messaggio non incontra un ID più piccolo allora ritorna indietro al nodo originario da entrambe le direzioni
+			- Se un candidato riceve il proprio ID da entrambe le direzioni allora è sopravvissuto allo stage corrente e passa al prossimo stage
+			- Un nodo che ha incontrato un nodo con ID più piccolo allora è stato battuto ed entra in una modalità **passiva**. Questi nodi inoltrano i messaggi delle altre entità, se un messaggio è una notifica di terminazione allora termina
+			- Quando terminal il protocollo?
+				- Ad un certo punto il leader farà un forward del suo messaggio, cioè il suo messaggio verrà mandato attraverso tutti gli altri nodi che sono passivi e quindi raggiungerà il leader nuovamente (nel messaggio indico se è un back o un forward). La differenza dei messaggi sta nella distanza che può percorrere (2^i), questo significa che se la distanza del messaggio gli permette di inviarsi i messaggi da solo allora è il leader. Successivamente viene inviata una notifica a tutti per identificare che è stato definito il leader.
+		- **Pseudocodice: **
+			- **INIZIALIZZA:**
+				- limit = 1
+				- count = 0
+				- send(id(x), limit) ai vicini
+			- **PROCESS-MESSAGE**
+				- limit = limit - 1
+				- if limit == 0
+					- manda ("back", ID) al proprietario
+				- else
+					- manda ("forth", ID, limit) agli altri
+			- **CHECK**
+				- count = count +1
+				- if count == 2
+					- count = 0
+					- limit = 2 * limit
+					- manda("forth", ID, limit) ai vicini
+			- **ASLEEP**
+				- spontaneamente
+					- INIZIALIZZA
+					- diventa(CANDIDATO)
+				- ricevente ("forth, ID, limit)
+					- if ID < id(x)
+						- PROCESS-MESSAGE
+						- diventa(DEPRECATO)
+					- else
+						- INIZIALIZZA
+						- diventa(CANDIDATO)
+			- **CANDIDATE**
+				- riceve ("Forth", ID, limit)
+				- if ID < id(x)
+					- PROCESS-MESSAGE
+					- diventa (DEPRECATO)
+				- else
+					- if ID == id(x)
+						- manda("Notify") agli altri
+						- diventa (LEADER)
+				- riceve ("BACK", ID)
+					- if ID == id(x)
+						- CHECK
+			- DEPRECATO
+				- riceve("forth", ID, limit)
+					- PROCESS-MESSAGE
+				- riceve ("back", ID)
+					- manda("back", ID) agli altri
+				- riceve ("Notify")
+					- manda("notifica") agli altri
+					- diventa(FOLLOWER)
+		- **Terminazione:** a forza di raddoppiare allora quando la distanza diventa maggiore di n allora il leader riceverà i suoi messaggi come Forth e quindi manderà la notifica di terminaizone
+		- **Message Complexity**
+			- Se l'entità x è candidata nello stage i significa che ID di x deve essere più piccolo degli ID a distanza di 2^i-1 in entrambe le direzioni
+			- Quello che dobbiamo fare è contare il massimo numero di candidati massimi per ogni stage che è uguale a:
+				- $$stage_{i} \rightarrow \lceil\frac{n}{2^{i-1}+1}\rceil$$
+				- Ovviamente dobbiamo ottenere un numero intero positivo, quindi arrotondiamo per difetto perchè significherebbe che la distanza dell'utlimo candidato è troppo vicina, per un lato, con un altro candidato
+			- Ognuno di questi nodi quanti mesaggi manda al passaggio iesimo? 
+				- $$4*2^i$$
+				- Che quindi se moltiplico per il numero di nodi nel passo iesimo ho il numero totale di messaggi in totale in quello step
+					- $$\frac{n}{2^{i-1}+1} * (4*2^{i})$$
+					- $$\frac{n}{2^{i-1}+1} * (4*2^{i})\le 8n$$
+			- Quanti passi massimo dovrò fare? (numero di stage)
+				- Io dovriò avere un k tale che elevato alla 2 mi permetta di compiere l'itero giro dell'anello e che quindi sia pari ad **almeno** n
+					- $$2^{k}\ge n$$
+					- questo significa che il mio k deve essere:
+					- $$k = \lceil\log_2{n}\rceil$$
+			- In conclusione possiamo dire che:
+				- passo 0:
+					- 4n (è un upper bound)
+				- passo 1 <= i <= log(n) -1 :
+					- 8n
+				- passo log(n)
+					- 2n
+				- numeri per la notifica 
+					- n
+				- **totale**
+					- $$4n + 2n+n \sum\limits^{\log{n-1}}_{i=1}{8n} = 7n + 8n(\log(n) -1) \in O(n\log(n))$$
+					- Riguardare la formula (sulle slide non ci sono le parentesi)
+		- **Time Complexity:** qual'è il caso peggiore, qual'è la catena più lunga di messaggi?  da guardarci meglio, suelle slide non c'è scritto nulla
+			- $$2^{\log{n} - 1} + n$$
+## Universal Election Protocol
+- In questo algoritmo vado ad identificare il leader con ID max, ma non cambia nulla
+- Restrizioni
+	- link bidirezionali
+	- ID distinti
+	- Grafo Connesso
+	- No fallimenti
+	- channels FIFO
+	- le entità conoscono il diametro d del grafo
+- Idea: flood dell'ID massimo sulla rete
+- **Algoritmo**:
+	- In ogni round un entità x manda il Max ID e aspetta l'ID dai propri vicini e poi calcola il massimo
+	- Dopo **d** rounds, se MAX è l'ID dell'entità x elegge se stesso come leader altrimenti diventa follower
+- **Message complexity**
+	- In ogni round ogni entità invierà un messaggio al suo vicino
+		- 2m * d
+- **Time Complexity**
+	- Il valore massimo deve raggiungere l'entità più lontana da quella che possiede il MAX id, questa catena può essere massimo lunga come il diametro del grafo **d**
