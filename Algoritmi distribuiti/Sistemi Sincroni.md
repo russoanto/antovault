@@ -72,3 +72,40 @@
 	- **Time**
 		- t(min) + f(min,n) + n < 2n * min +2n
 		- O(n*min) unità di temp
+
+### Universal waiting
+
+- La tecnica di attesa può essere utilizzata da qualsiasi rete connessa G per determinare l'ID minimo
+- Algoritmo
+	- Wake Up: viene mandato un messaggio start 
+
+## Randomized leader election
+- Cosa posso fare se non ho identificativi univoci? Posso cambiare il protocollo.
+	- Protocollo randomizzato
+		- Ovviamente non abbiamo garanzie come ne abbiamo nei protocolli deterministici per ovvie ragioni
+			- **Montecarlo**: terminano sempre ma il risultato è corretto con una data probabilità
+			- **Las Vegas**: terminano sempre correttamente ma terminano con una data probabilità
+	- LasVegas: l'idea è che si ragiona in rounds in cui in ognuni si scelgono dei valori casualmente, se ho un solo minimo allora lo definisco leader altrimenti inizia un nuovo round.
+		- **Assunzioni:**
+			- ogni nodo conosce n
+		- Tutit quelli che hanno il minimo inviano una notifica, ma come facciamo a sapere se siamo gli unici ad avere il minimo, non ho un identificativo che mi faccia capire di chi è la notifica
+			- uso il tempo che è sincronizzato, so dopo quanto tempo devo ricevere il mio messaggio.
+		- Una volta che ho capito che sono leader allora mando una notifica di leader election.
+		- **Protocol Complexity**
+			- **Singolo round**
+				- **Message**
+					- O(n) bits
+				- **Time**
+					- O(n * min_id + n) and min_id < b --> O(n*b)
+					- b identifica l'intervallo entro il quale io scelgo il mio identificativo casualmente, più è grande maggiore sarà il tempo di elezione del leader.
+			- **Quanti round ho bisogno**:
+				- Dipende dal criterio di selezione random
+					- se utilizzo distribuzione uniforme allora se ho 2 valori ad esempio risulta difficile che il protocollo termini rapidamente
+					- una possibilità può essere
+						- 0 con probabilità 1/n
+						- 1 con probabilità (n-1)/n
+					- Il protocollo termina quando esattamente una sola entità sceglie 0 questo accade con probabilità $$\frac{1}{n} * \frac{n-1}{n}^{n-1}$$
+					- Ovviamente a me va bene che chiunque possa diventare leader quindi devo moltiplicate tutto per n $$n*\frac{1}{n} * \frac{n-1}{n}^{n-1} = \frac{1}{e}_{n\rightarrow \inf}$$
+					- Se io voglio sapere la probabilità di successo non dopo 1 round ma dopo r round allora ho $$\frac{1}{e} * (1-\frac{1}{e})^{r-1} = e$$
+					- In media ci aspettiamo che termini entro 3 round circa, si parla di risultati attesi
+					

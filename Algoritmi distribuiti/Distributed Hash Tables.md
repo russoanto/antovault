@@ -1,0 +1,68 @@
+- Distributed data structure
+	- Strutture dati che devono essere scalabili con il numero di nodi  e deve essere trasparente
+## Hash Tables
+- Memorizzazione di coppie di valori {key:value} la chiave ci permette di accedere al dato da memorizzare che è il value.
+### Distributed Hash tables
+- Le primitive devono essere le stesse della versione sequenziale
+- Non avremo un array, quindi le coppie vengono associate ai nodi
+	- Solitamente una coppia viene associata ad uno e un solo nodo
+### Perchè nascono?
+- Nasce con l'esigenza della condivisione dei dati digitali (musica)
+	- Ognuno condivideva un sottoinsieme di file che possedeva
+	- Ogni utente poteva scaricare file da tutti gli utenti nel sistema
+- I file erano immagazzinati nelle macchine degli utenti
+	- C'era un server centrale che conteneva l'indice che mappava le canzoni con le machine funzionanti
+- In generale tutte le soluzioni che sono state individuate vengono soddisfatte dalle Hash table distribuite.
+-  Ogni nodo è reponsabile di un sottoinsieme di coppie (k,v)
+	- se il nodo se ne va allora la responsabilità passa ad un altro nodo
+- I nodi parlano tra di loro per capire chi è responsabile di una determinata coppia
+- I nodi formano un overay di rete e comunicano su questo overlay
+- Le funzioni hash devono permetterci di mappare l'indice della chiave con il nodo che ha la responsabilità
+- Devo bilanciare il carico sui nodi
+## Chord
+- Considera l'overlay network come un **ring**
+- Ad ogni entità viene dato un identificativo.
+	- Questo viene fatto con una hash function
+- Ogni nodo per ricordarsi l'overlay network si ricorda il successore nell'anello (abbiamo un anello unidirezionale)
+- Le chiavi vengono assegnate al nodo tale che:
+	- NodeID >= KeyID
+- Cosa succede se si fa lookup?
+	- Ogni nodo deve essere in grado di rispondere
+- Per prima cosa si trasforma la chiave con la funzione hash utilizata
+- Ogni nodo conosce solo il suo successore, quindi se inoltra la richiesta sempre al suo successore fino a quando non si trova il nodo che contiene la chiave specifica.
+	- La richiesta passa attraverso tutti i nodi
+- Questo sistema è molto lento quindi si aggiungono alcune informazioni
+	- **finger table**: ogni nodo si costruisce una tabella che mi permette di memorizzare identificativi dei nodi che stanno ad una distanza sempre crescente (raddoppia sempre la distanza entro il quale vado a memorizzare)
+		- Non è detto che queste entry corrispondano ad un nodo esistente e quindi li faccio ricondurre al nodo più vicino successivo
+		- Per costruire questa tabella utilizzo il **lookup**
+		- Come utilizzo questa tabella?
+			- Se io ricevo la richiesta per una chiave per prima cosa controllo nella mia finger table
+			- Controllo tra le entry e vado a chiedere il valore al nodo associato al finger più grande non maggiore del valore richiesto
+				- Probabilmente quel nodo non avrà quella chiave ma sicuramente non rischio di saltare il nodo che lo possiede (visto che la finger table ha dei buchi non si può semplicemente prendere il valore maggiore)
+		- In media il numero di nodi da contattare è di O(log n)
+- **node join**: quando un nodo entra nella rete chord deve essere in grado di preservare l'abilità di recupero delle chiavi
+	- Per farlo devo aggiungere ad ogni nodo anche la consapevolezza dei predecessori
+	- **update**: nuova finger table
+	- **transfer**: mappo i valori con le chiavi corrispondenti al nuovo nodo
+- A questo aggiungiamo uno **stabilization protocol** che è un protocollo che esegue periodicamente per verificare che tutto sia coerente e conforme ai requisiti prefissati.
+	- Questo non va ad inficiare sul funzionamento del protocollo, quello deve essere garantito a priori.
+	- Quello che fa è andare a migliorare le performance
+	- Funzionamento
+		- A invia una richiesta di stabilizzazione a B
+		- B quando riceve una richiesta di stabilizzazione 
+			- Se A > pred(B) allora aggiorna il predecessore ad A
+			- Invia un messaggio notifica(pred(B)) ad A
+		- A quando riceve una notify(B)
+			- Se A < B' < B allora A aggiorna il suo successore to B'
+- **node leave**
+	- L'uscita senza fallimento viene gestito con un protocollo ad hoc
+	- In caso di fallimento è un problema perchè il nodo muore con tutte le chiavi che possiede
+		- Posso fare ridondanza salvandomi le copie
+		- Se non duplico le chiavi non ci posso fare nulla
+## Peer-to-Peer networks
+- può essere vista come un organizzazione in cui possono partecipare entità uguali tra di loro
+- Si contrappone al modello client server
+- Non c'è un controllo centralizzato
+- Si basa sulla collaborazione volontaria
+- Non ci sono single point of failure
+- 

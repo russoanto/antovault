@@ -1,0 +1,22 @@
+- **Asset:** Un asset è una entità generica che interagisce con il mondo circostante. La natura dell’entità è variegata e dipende dal contesto di cui si parla
+	- Nel corso il focus è sulla **programmazione sicura** quindi gli asset sono il **software**
+	- Un' asset può essere caratterizzato in 3 aspetti distinti
+		- **Funzionalità:** L’insieme delle operazioni che l’asset è chiamato a svolgere (come da requisiti e specifiche).
+		- **Prestazioni:** Il livello prestazionale che un asset è supposto mantenere durante la sua esecuzione
+		- **Sicurezza:** Il grado di protezione di un asset contro operazioni “pericolose” (maliziose o accidentali)
+	- Interazione e rischi: un utente può interagire in 3 modi con gli asset:
+		- correttamente
+		- incorrettamente, in modo involontario
+		- incorrettamente, in modo malizioso
+- **Minaccia (threat):**  è una qualunque potenziale causa di incidente, risultante in un danno all’asset. Le minacce possono classificarsi in 2 modi:
+	- accidentali
+	- dolose
+- Una possibile classificazione di minacce in ambito informatico è quella introdotta da microsoft **STRIDE**
+	- **Spoofing:** spacciarsi per un altra entità
+	- **Tampering:** modificare le informazioni
+	- **Repudiation:** impossibilità di attribuire le azioni
+	- **Information Disclosure:** divulgare informazioni
+	- **Denial of Service:** negare un servizio
+	- **Elevation of privilege:** elevare i propri privilegi
+- **Utente attaccante:** un utente attaccante, cracker, interagisce con l'asset in modo deliberato, malizioso e doloso (mai accidentale) con il fine ultimo di tramutare una minaccia in realtà motivato dal conseguimento di un vantaggio.
+## Classificazione degli attaccanti

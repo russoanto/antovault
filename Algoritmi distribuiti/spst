@@ -1,0 +1,200 @@
+12)
+Che cosa abbiamo visto la scorsa volta?
+Primo protocollo dove le entità si scambiano info sui propri intorni.
+Tutti mandando queste info agli altri tramite il gossip.
+Tutti si ricostruiscono la mappa della rete.
+Successivamente si calcolano i cammini minimi e si costruisce la tabella di routing
+
+In alternativa, invece di dover costruire ogniuno la mappa per intero, possiamo lavorare con i sitnace vector che dicono la dstanza minima tra me e ogni altro nodo.
+POssono essere calcolati in maniera iterativa.
+
+13)
+Inizalmente metto solo le info che conosco
+
+Per migliorare, passo il mio distance vector ai miei vicini e prendermi il loro, in modo tale da aggiugnere informazioni e scoprire la visione a distanza 2 da me
+
+15)
+i vicini mi dicono qualcosa, e quindi scopro che per andare a c mi conviene passare verso h, pagando solo 2
+
+Quindi posso decidere di modificare la mia tabella, aggiornando la distanza necessaria per arrivare a c
+
+Questo può essere fatto per ogni nodo
+
+16)
+Ogni volta calcolo il nuovo distance vector e lo giro ai miei vicini
+
+Questo modo di procedere, altro non è che BELLMAN FORD
+
+Bellman ford cicla su tutti gli archi per vedere se trovo cammini più brevi rispetto a prima; qui facciamo lo stesso, ma in maniera distribuita.
+Ogni nodo, ad ogni iterazione allunga di 1 i cammini minimi che si possono fare.
+
+Bellman ford converge in n-1 operazioni, che è anche il numero max di archi che possiamo avere nel gafo.
+Pertanto dopo max n-1 operazioni, trovo tutti i cammini minimi
+
+Se trovo il cammino più corto, ovviamente quello non cambia più
+
+17)
+Ci sono dei momenti in cui i nostri nodi hanno una conoscienza parziale rispetto ai cammini minimi, ma una volta trovato il camminio minimo, non cambia più.
+
+Rispetto al gossip, quello dava maggiori informazioni, ogni nodo conosceva la mappa; qui invece conosco solo la distanza minima e il nodo successivo a cui inoltrare il messaggio e il costo, però non conosco ne mappa ne albero dei cammini minimi
+
+Complessità in messaggi:
+ad ogni iterazione, ttti mandano il prorpio distance vector ai vicini, mandando quindi n iterm, uno per ogni riga delle tabella
+
+Per ogni iterazione 2n *m e in totale n operazioni, quindi otteniamo O(n^2 m)
+
+Il distanc vector, alla fine diventa la nostra routing table
+
+18)
+più messaggi rispetto a prima, ma meno informazioni
+
+Non andiamo nel dettaglio, ma cosa succede se ammettiamo che il grafo può cambiare?
+Ho bisogno di un meccansimo che mi ricostruisce la tabella di routing corretta, come si applica ciò ai vari algoritmi?
+
+Nel gossip cosa dovrei fare?
+Se cambia il peso su un arco cosa deve succedere?
+BIsogna che chi subisce la variazione se ne accorga, broadcast a tutti, tutti modificano la mappa e rifare cammini minimi e routing table
+
+Nel distance vector invece?
+Mando il distance vector ai vicini che lo cambieranno e lo manderannoa gli altri, e così via
+
+Nella realtà si usano questi due protocolli, sopratutto in reti piccole, PERO' non sarebbe troppo lento garantire che i messaggi viaggiano tra i cammini minimi, ma si può garantire che prima o poi si può convergere verso i cammini minimi, ma non posso garantire che in ogni momento i messaggi seguono i cammini minimi.
+
+
+Posso pensare di usare dijkstra e BFS su distribuito?
+
+37)
+Voglio minimizzare il numero di nodi intermedi che ricevono il messaggio, prima che questo arrivi a destinazione
+
+Nel caso in cui fossimo in sistema sincorno, per costruire l'albero della bfs cosa posso usare?
+Shout
+
+38)
+Nel caso in cui abbiamo il sistema sincorno abbiamo anceh il protcollo che ci trova l'albero della bfs.
+
+Se il protocollo non è sicnorno, shout non serve a niente, perchè i messaggi hanno latenza e quindi potremmo avere un albero sbagliato
+
+Cosa posso fare per andare a regolare queste lungehzze non predicibili?
+Prima che i verdi vadano a cercare i filgi nell albero, io sorgente s devo essere sicuro che questi abbiamo ricevuto il mio messaggio e mi abbiano risposto, solo quando tutti e 3 hanno risposto possono ripartire a cercare figli.
+Non c'è sincornizzazione, la introduciamo noi.
+
+Questo protocollo funziona per iterazioni successive dove per ogni iterazione aggiungo un livello nell albero della bfs.
+
+VALE UNA PROPRIETA': se prendo un nodo a distanza i dalla sorgente, e vado a vedere (grafo non diretto) dove stanno i vicni, che distanza hanno dalla sorgente?
+Se sono nel verde ad esempio, i miei vicini o sono uno arco in più vicini alla sorgente, o sono distanti quanto me dalla sorgente, o sono distnati un arco in più dalla sorgente.
+
+39)
+Ci sono due stati inziali: radice e non radice, la radice fa partire la bfs
+
+La radice controlla le iterazioni che fanno si che si cercano i vicini a distanza 1 alla prima iterazione, a distanza 2 alla seconda ecc 
+A generica iterazione i, si cercano i vicini a distanza i.
+
+Quello che succede è che viene costruito un albero bfs parziale, ad ogni iterazione i nodi sanno se sono nell'albero parziale, sanno chi è il padre nell'albero parziale e se hanno eventuali figli
+
+40)
+L'iterazione inizia con la radice che manda sul tree parziale lo start; gli altri sono in attesa, ad un certo punto, quelli che sono nell'albero, ricevono dal padre dell'albero il messaggio di start iteration.
+Cosa devono fare?
+O fare semplicemnete forwards o esplorare
+
+41)
+
+42)
+Perchè tutti devono aspettare gli ack prima della prossima fase?
+Perchè bisogna essere sicuri che il vicino di cui faccio l'explore deve essere raggiunto da me prima della explore della fase successiva
+
+Quando termina questo protcollo?
+Chi può farlo terminare, chi può mandare una notifica di fine?
+La radice è quella che da il ritmo, quindi è quella che può dire a tutti ok abbiamo finito.
+Ma come può farlo?
+QUante iterazioni al massimo ci possono essere?
+n-1
+La radice si può fermare a n-1, quindi sicuramnete nn fa più di n-1 iterazioni.
+Si può mettere in piedi alto meccanismo per fermasi prima se tutti i nodi sono già inglobati?
+Se voglio fermarmi prima dell'n-1?
+Contiamo i nodi per iterazione.
+Il nodo che fa l'explore, quando manda indietro end iteration, può dire quanti nodi ha aggiunto all'albero (l conta tramite gli ack ok che ha ricevuto).
+Questo se la sorgente sa quanti nodi ci sono nel grafo.
+
+Se la sorgente invece non sa quanti sono i nodi?
+Quando la folgia non fa più nulla, cioè non aggiunge, per lei è finita, annche se non sa cosa fanno gli altri.
+Però un nodo che fa explore e non trova nulla, non li trovaerà nemmeno alle iterazioni successive, avrà finito.
+QUindi può mandare indietro un messaggio che dice basta ho finito e che contiene ovviamente anche l'end iteration.
+Cosa fa il nodo interno che si vede tornare indietro queste informazioni?
+Se tutti gli mandano "basta ho finito" allora manda indietro "basta ho finito".
+Altrimensti se qualcuno dei suoi figli triva qualcosa, allora si va avanti.
+Quindi quando tutti i figli della radice comunicano di non aver trovato nulla, siamo alla fine.
+Allora la radice manderà un messaggio a tutti dicendo che è tutto finito.
+
+43)
+Quanto costa?
+in una iterazione abbiamo un broadcast su albero parziale di profondità i-1, poi explore, poi convergecast
+
+Per il broadcast dipende dai nodi nell'albero parziale;
+La fase di explore porta l'invio di un numero di messaggi pari al numero di vicini, raddoppiato perchè ci sono anche gli ack
+Convergcast invece deve tornare dalle foglie fino a su, quindi dipende sempre dal numero di nodi presenti nell'albero su cui viene fatto
+
+44)
+Quando faccio broadcast e convergcast, l'albero è lo stesso?
+NO
+
+
+Per il broadcast -> se sono ni pago ni-1
+Il convergcast paga questi + i messaggi che viaggiano da quelli aggiunti a quelli già nell'albero
+
+
+Quante iterazioni devo sommare?
+r(s) raggio della sorgente, cioè distanza max a cui si trova un nodo da s
+
+2(n i − 1) -> non lo posso stimare, dipende dai nodi ad ogni livello
+per questo faccio una maggiorazione andando a mettere n-1 e considerando tutti i nodi
+
+D(G) è il diametro del grafo
+
+45)
+quanto costa explore?
+
+46)
+alla fine viene fuori tutto questo 
+
+anche il diametro del grafo ha upper bound n − 1
+
+47)
+A livello di tempo invece?
+Siamo in un sistema asincorno
+
+Ci concentriamo sulle varie catene di messaggi per ogni iterazione, come stanno in realzione tra loro?
+Catena più lunga della prima iterazione, poi catena più lunga della seconda iterazione, ecc ecc
+Nella prima iterazione il primo messaggio parte dalla sorgente e arriva ai vicini, e torna indietro. Quelli sono due messaggi che vanno in fila.
+All'iterazione successiva parte il broadcast, da sorgente ai nodi a distanza 1, solo a quel punto partono gli explore, e gli explore partono e attendono l'ack... Questi sono tutti in fila
+
+
+Dalla sorgente fino alla distanza i-1.
+Il nodo a i-1 manda in parallelo l'explore ai suoi vicini, aspetta gli ack che tornano indietro, che arriveranno in momenti diversi al nodo i-1. Non so quanto ci mettono, ma hanno generato una catena lunga 2 messaggi.
+Quando sono arrivati tutti, ho generato una catena lunga 2.
+Quando i-1 ha finito, manda indietro l'end iteration che andarnno indietro e passeranno per tutti i nodi.
+Inoltre dalla sorgente varranno mandati dei messaggi ceh arrivano a i-1 e dovranno tornare indietro delle risposte.
+Abbiamo quindi 2(i-1) + 2 = 2i
+
+Quindi abbiamo la sommatooria di i che va da i a r(s) di 2i.
+questa è uguale a 2 * ( r(s) * (r(s)+1) ) / 2 che è dell'ordine di O(r(s)^2)
+
+
+19)
+Adesso vediamo come usare dijkstra in distribuito.
+Costruisce l'albero in maniera incrementale
+
+Se prima ogni volta mettevamo un livello intero di nodi, adesso per ogni iterazione ne aggiungiamo solo uno di nodo.
+Come lo scelgo?
+Deve essere uno dei vicini ad un nodo già nell'albero e con il cammino più breve
+
+20)
+Ad ogni iterazione cosa succede?
+
+Archi blu collegano nodo nell'albero con nodo fuori albero, sono quellii nella frontiera
+
+Tra tutti questi nodi, c'è il prossimo candidato a essere inserito nell'albero.
+
+Devo cercare quallo con la strada più corta dalla sorgente a lui
+
+Nela versione incrementale, un nodo con due padri, e ceh deve essere inserito nell'albero, è in coda già con la scelta più conveniente, sappiamo già l'arco più conveniente.
+Nel caso distribuito non lo sappiamo, abbiamo due alternative e dobbiamo scegliere qualla più conveniente.

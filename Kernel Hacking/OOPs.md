@@ -1,0 +1,4 @@
+- Agigungere la parte precedente
+- **BUG_ON**: è un assert del kernel
+- **WARN_ON**: mi da un OOPs ma non ferma il kernel, non uccide nessuno, non da nessuna conseguenza
+	- Può essere utilizzato per ispezionare il kernel, cioè per capire come sono arrivato in una determinata funzione. Con la warn_on ottengo la stack trace stampata

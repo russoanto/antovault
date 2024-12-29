@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "035174cd6c36bc95",
+        "id": "7cf2002f30c0dd73",
         "type": "tabs",
         "children": [
           {
-            "id": "0e6a94b94aa699c6",
+            "id": "e20abc1ad7914b48",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algoritmi distribuiti/Spanning Tree Construction.md",
+                "file": "Sviluppo-Sicuro/4f - Input non controllato.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "4f - Input non controllato"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Esplora risorse"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,15 +68,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "40ed925a0582be89",
@@ -86,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algoritmi distribuiti/Spanning Tree Construction.md",
+                "file": "IoT/Task offloading.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Task offloading"
             }
           },
           {
@@ -103,10 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algoritmi distribuiti/Spanning Tree Construction.md",
+                "file": "Sviluppo-Sicuro/4f - Input non controllato.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Collegamenti in uscita da 4f - Input non controllato"
             }
           },
           {
@@ -117,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Etichette"
             }
           },
           {
@@ -126,56 +139,81 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algoritmi distribuiti/Spanning Tree Construction.md"
-              }
+                "file": "Sviluppo-Sicuro/4f - Input non controllato.md"
+              },
+              "icon": "lucide-list",
+              "title": "Struttura di 4f - Input non controllato"
+            }
+          },
+          {
+            "id": "5503b37ee32cff88",
+            "type": "leaf",
+            "state": {
+              "type": "hackernews-view",
+              "state": {},
+              "icon": "hackernews",
+              "title": "HackerNews"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "switcher:Apri selezione rapida": false,
+      "graph:Apri vista grafo": false,
+      "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
+      "templates:Inserisci modello": false,
+      "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "0e6a94b94aa699c6",
+  "active": "5503b37ee32cff88",
   "lastOpenFiles": [
-    "IoT/CrowdSensing.md",
+    "HackerNews/38C3  Illegal Instructions.md",
+    "HackerNews",
+    "Università/Senza nome.canvas",
+    "Sviluppo-Sicuro/4f - Input non controllato.md",
+    "Università",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode_proof",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode.o",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack6/system.c",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack6/stack6-payload.py",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack6/Makefile",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/stack5-payload.py",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode_proof.c",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode.s",
+    "Sviluppo-Sicuro/4e - Corse critiche.md",
+    "Sviluppo-Sicuro/4c - Eccessiva verbosità.md",
+    "Sviluppo-Sicuro/L3 - Definizioni.md",
+    "Sviluppo-Sicuro/4d - Eccessiva esposizione asset.md",
+    "Sviluppo-Sicuro/4d - Eccessiva esposizione degli asset.md",
+    "Algoritmi distribuiti/TSP.md",
+    "Algoritmi distribuiti/Distributed Hash Tables.md",
+    "Algoritmi distribuiti/Faults and failures.md",
+    "Sviluppo_.md",
+    "Algoritmi distribuiti/Routing Algorithms.md",
+    "Kernel Hacking/1- Rust.md",
+    "Kernel Hacking/OOPs.md",
+    "Kernel Hacking/Git.md",
+    "Kernel Hacking/Introduzione.md",
+    "2d_detection/Roadmap detection and traking.md",
+    "test.md",
+    "2d_detection/Tracker ETH.md",
+    "Algoritmi distribuiti/Sistemi Sincroni.md",
+    "2d_detection/Datmo_Refactor.md",
+    "IoT/AI on IoT.md",
+    "2d_detection/Scheletro.md",
+    "Algoritmi distribuiti/Leader Election.md",
+    "Algoritmi distribuiti/Teoria della computazione distribuita.md",
+    "Algoritmi distribuiti/Spanning Tree Construction.md",
     "IoT/img/mcs_tax.png",
     "IoT/img/Pasted image.png",
-    "IoT/WoT.md",
-    "IoT/pdf/crowd_sensing.pdf",
-    "IoT/pdf/document(6).pdf",
-    "IoT/pdf/WoT.pdf",
-    "Algoritmi distribuiti/Spanning Tree Construction.md",
-    "Algoritmi distribuiti/pdf/SPT_construction.pdf",
-    "Algoritmi distribuiti/pdf",
-    "2d_detection/Adaptive Breakpoint Detector.md",
-    "Algoritmi distribuiti/TSP.md",
-    "Algoritmi distribuiti/Lezione 1.md",
-    "Algoritmi distribuiti/Teoria della computazione distribuita.md",
-    "IoT/Messaging Protocol.md",
-    "IoT/Low power wide area network.md",
-    "IoT/IoT Scenario.md",
-    "Algoritmi distribuiti/Branch&Bound.md",
     "Untitled.canvas",
-    "Algoritmi distribuiti/Vertex Cover.md",
-    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf",
-    "Algoritmi distribuiti/Untitled mindmap.md",
-    "Untitled.md",
-    "IoT/Ubiquitous Computing and Context Aware Systems.md",
-    "IoT/Untitled mindmap.md",
-    "IoT/Use Case.md",
     "IoT/img/ampq.png",
     "IoT/img/qos.png",
     "IoT/img/mqtt_publish.png",
@@ -183,18 +221,6 @@
     "IoT/img/mqtt.png",
     "IoT/img/obs.png",
     "IoT/img/coap_mssg.png",
-    "Kernel Hacking/Git.md",
-    "Kernel Hacking/Kernel Module - hello world.md",
-    "Automotive CYber Security/CAN Bus.md",
-    "Automotive CYber Security/img/data_frame.png",
-    "Automotive CYber Security/img",
-    "IoT/img",
-    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf.download",
-    "Automotive Connectivity/M1 - L4.md",
-    "Automotive Connectivity/M1 - L3.md",
-    "Automotive Connectivity/Modulo 1 - Intra Vehicle.md",
-    "Automotive Connectivity/Modulo 1 - Lesson 2 Recap.md",
-    "Algoritmi distribuiti/Cabri/Intro.md",
-    "Algoritmi distribuiti/Cabri"
+    "Automotive CYber Security/img/data_frame.png"
   ]
 }

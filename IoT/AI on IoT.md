@@ -1,0 +1,30 @@
+# Why
+- Ci sono vari lati positivi nell'avere i modelli direttamente nei device
+	- latenza(non dobbiamo trasferire nulla)
+	- Riduzione di bandwidth
+	- Energy saving (computare è meno costoso)
+	- Privacy (i dati non devono essere trasferiti, o meglio trasferiremo solo i risultati)
+- **TinyML:** è un iniziativa che rappresenta un branch di algoritmi di ML per sistemi embedded
+	- Il focus è su modelli che possono essere utilizzati su piccoli microcontroller
+	- Un esempio è **Tensorflow Lite** che è una versione modificata di Tensorflow che può essere utilizzta su dispositivi con pochi KB di memoria
+	- **Task di TinyML**
+		- Classification
+		- Anomaly Detection
+		- Forecasting
+	- **How it works?**
+		- ci viene fornito un header file in cui dovremo passare il modello che vogliamo utilizzare, questo verrà poi compreso da Tensorflow lite.
+			- In generale abbiamo dei dati (testo, immagini, video etc..)
+			- Definiamo e successivamente alleniamo un modello
+			- Validimo il modello
+			- Inference del modello
+		- Noi non faremo tutto questo, ma ci sono molti tool che fanno questo al posto nostro, nello specifico vedremo **EDGE IMPULSE**
+	- Edge Impulse: è una piattaforma per portare AI su edge devices
+		- Getting the data: possiamo procedere in 2 modi
+			- aggiungere dati esistenti: già ho i dati
+			- collezionare nuovi dati: edge impulse ci fornisce degli strumenti per collezionare dati 
+		- Impulse 
+			- è una pipeline di azioni, iniziamo con il prendere i dati fino alla definizione del modello
+				- processing blocks (se usiamo un esp32 non possiamo lavorare con immagini in 4k ma dobbiamo processarle prima di poterle utilizzare)
+				- lesrning block
+				- output 
+			

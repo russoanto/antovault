@@ -1,0 +1,111 @@
+- L'entità x vuole comunicare alcune informazioni con l'entità y, come fa a raggiungere y?
+	- Possiamo risolvere questo problema con i **broadcast**
+		- Problemi
+			- costoso
+			- non sicuro
+				- tante entità ricevono delle informazioni che non sono destinate a loro
+- **Routing**: è il processo che identifica il percorso da una sorgente x a una destinazione y
+	- **routing memory**
+		- numero di bit necessari per mantenere la funzione di routing 
+		- O(nlogw)
+	- **Search time**
+		- tempo necessario per scegliere il link da usare
+		- O(logn)
+- **Router**: processore dedicato che automaticamente identifica una route per i messaggi che lo attraversano
+	- La decisione viene presa tramite le seguenti informazioni
+		- **address**: parte di informazioni contenute nel messaggio
+		- **routing table**: informazione locale contenuta dal router
+	- **Assunzioni**:
+		- link bidirezionali (ci possono essere dei costi associati ai link)
+		- connettività
+		- resistenza ai guasti
+		- local orientation
+		- id distinti
+- routing function:
+	- ogni entità ha la sua routing function, per ogni destinazione y, f(y) è il link sul quale inviare il messaggio per la destinazione, idealmente attraverso il percorso minore
+	- **Cammino minimo**
+		- **Principio di ottimalità**
+			- se un nodo x è sul cammino minimo P da a to b nello shortest path spanning tree di a allora P è anche un frammento dello shortest path spanning tree di x 
+	- Come la costruisco la routing function?
+		- **Gossip**
+			- Ogni nodo localmente sa chi sono i propri vicini e se tutti mandano a tutti queste informazioni locali allora si può ricostruire l'intera rete **gossip**
+				- Eleggo il leader
+				- Costruisco uno spanning tree arbitrario
+				- Ogni entità recupera le informazioni sui propri vicini
+				- SI fa broadcast delle informazioni ottenute
+				- Ogni entità costruisce la propria routing table basato sull'albero dei cammini minimi
+			- Problemi:
+				- Aggiunta di nodi (per ora facciamo che non succeda)
+				- Il grafo può essere grande quindi può essere molto costoso
+			- **Costo**
+				- **Message Complexity**
+					- Con SHOUT: O(2m)
+					- Un singolo scambio di informazioni tra vicini O(2m)
+					- ogni entità x broadcast deg(x) item di informazioni attraverso gli n-1 link dello spanning tree
+						- per un broadcast: (n-1)deg(x)
+						- per tutti i broadcast $$\sum\limits_x{((n-1)*deg(x))} = (n-1)*2m$$
+					- tot: O(n*m)
+			- Questo approccio non può essere applicato per grafi estremamente grandi
+		- **Iterating**
+			- L'dea sta nel andare ad aggiornare la propria conoscenza (**distance vector**), che inizialmente è limitata ai suoi vicini
+			- Ad ogni iterazione invio le mie informazioni ai miei vicini e le aggiorno con quelle che ricevo
+## Shortest Path spanning Tree
+- Aggiungere questa parte, ho gli appunti su signal. Abbiamo visto la parte sequenziale dell'algoritmo di dijkstra. Quello che vogliamo fare è riproporlo in un sistema distribuito
+### Distributed - Dijkstra
+- **Steps**
+	- Ad ogni iterazione i nostri nodi impostano tutti gli archi come **outgoing**
+		- Un arco outgoing è un arco che collega un nodo dell'albero con un nodo che si trova al di fuori
+	- Tutte le entità acquisiscono il costo degli archi incidenti
+	- La **sorgente** sta nell'albero e tutte le altre entità sono fuori dall'albero
+	- La sorgente notifica ai vicini (distanza 1 arco) che sono nell'albero
+	- I vicini della root impostano gli archi che li connettono con la root come **non-outgoing**
+- **Generic iteration**:
+	- la root fa broadcast "start iteration" nell'albero
+		- O(n) msgs
+	- Una generica entità x nell'albero, appena riceve "start iteration"
+		- calcola la distanza dalla root e ci somma il costo della distanza degli archi outgoing
+		- seleziona l'arco dal costo minore c(x,y_x)
+	- Le entità nell'albero calcolano x_cap = delta(x) + c(x,y_x) usando un **convergecast** sull'albero
+	- La root aggiunge (x_cap, y_x) e x_cap all'albero
+	- La root notifica a y_x della sua inclusione nell'albero
+		- Posso inviare questa notifica in maniera diretta? (senza broadcast)
+		-  Si, basta che ogni nodo che ha inoltrato il minimo, mantenga in memoria questa informazione fino a che non riceve la notifica per dire chi ha vinto oppure la notifica di nuova iterazione
+	- Entità y_x notifica i suoi vicini che è entrato nell'albero
+	- Ogni entità vicina di y_x impostano gli archi (z,y_x) come **non-outgoing**
+		- inviano un ack a y_x
+	- y_x appena riceve tutti gli ack, manda "fine iterazione" fino alla radice
+- **ending**
+	- quando la sorgente può decidere quando terminare il protocollo?
+		- Quando sono finiti i nodi
+		- Se abbiamo n nodi allora sappiamo che abbiamo una iterazione per ogni nodo da includere (escludendo la radice) cioè n-1 iterazioni.
+		- Se la root non conosce il numero di nodi allora quando tutti i nodi hanno solo archi **non-outgoing** sappiamo che non ci possono essere più candidati e quindi il protocollo può terminare
+			- Quindi se la radice riceve solo valori negativi invierà una notifica di terminazione
+- **costi**
+	- Consideriamo che ad ogni iterazione aggiungo un solo nodo alla volta
+	- Cosa succede in una generica iterazione?
+		- Broadcast "start iteration"
+			- i-1 msgs
+		- convergecast
+			- i-1 msgs
+		- notification to selected node
+			- il caso peggiore è che l'albero è una catena quindi: (i-1)+ 1 msgs
+		- notification "end iteration"
+			- (i-1) + 1 msgs
+		- $$\sum_{i=1}^{n-1}\limits{(4i-2)} = 4\sum_{i=1}^{n-1}\limits{i-2}\sum_{i=1}^{n-1}\limits{1} = 2(n-1)^{2}= O(n^2)$$
+		- Riguardare il costo degli ack da aggiungere
+		- **Time**
+			- I messaggi che viaggiano in sequenza sono:
+				- start -->
+				- <-- convergecast
+				- hai vinto -->
+				- <-- fine
+			- Quindi sono 4(i - 1) senza considerare quelli alla radice (li abbiamo contati a pezzi)
+			- A quelli ci devo aggiungere 4 che sono
+				- ack e notifiche alla root
+			- In totale abbiamo 4i 
+			- $$ 4 \sum_{i=1}^{n-1}\limits{i} = 2(n-1)n$$
+			- Si parla di O(n^2)
+		- Se vogliamo calcolare tutte le tabelle di routing allora TUTTI devono costruirsi il proprio spanning tree (ognuno diverso)
+			- Un singolo spanning tree ha costo O(n^2)
+			- n shortest path O(n^3)
+				- 

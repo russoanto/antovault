@@ -3,6 +3,3 @@
 - un commit seguito ~ indica il parent di quel commit
 
 
-Stampare tutti i nomi delle release del kernel
-
-La storia di git non è lineare, o meglio è lineare nel branch
