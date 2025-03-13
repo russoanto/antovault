@@ -42,7 +42,7 @@
 		- ini_set("display_errors", 1)
 ## Eccessiva Verbosità
 - Il programmatore inserisce una serie di messaggi manuali di debugging contenenti informazioni succose.
-	- percorsi di file, username, informazioni sul sistema etcc...
+	- percorsi di file, username, informazioni sul sistema etc...
 - Quello che può capitare è che il programmatore prenda un input non controllato e lo stampi in output
 	- **riflessione dell'input (input reflaction)**
 - L'output può rivelare in maniera subdola proprietà su sistema, l'attaccante può guadagnare ulteriori conoscenze sul sistema
@@ -58,8 +58,8 @@
 	- percorsi
 	- configurazioni di sistema
 	- documenti aziendali
-#### Esecuzione lato clien
-- IN ambito WEB è possibile inoculare codice javascript arbitrario e malizioso che può mettere in serio imbarazzo la vittima
+#### Esecuzione lato client
+- In ambito WEB è possibile inoculare codice javascript arbitrario e malizioso che può mettere in serio imbarazzo la vittima
 	- Defacement sito web
 	- form credibili
 	- Furto di cookie con conseguente impersonificazione
@@ -96,7 +96,7 @@
 ```
 - **asprintf**: costruisco una stringa contenente un comando UNIX
 - **printf**: stampo il comando che andrò ad eseguire
-- system: eseguo il comando che ho costruito
+- **system**: eseguo il comando che ho costruito
 - Qui il problema è che l'attaccante è in grado di vedere in anteprima qual'è il comando che verrà eseguito
 #### Protostar stack01
 ```C
@@ -162,7 +162,6 @@
 - Si visualizzi il codice sorgente, il punto è come si fa? Usando lo spirito hacker vedendo questo url 'http://192.168.122.99/xss/example1.php?name=hacker' ho ben pensato di togliere il parametro name e quello che ho ottenuto è un errore troppo verboso che mi indicava che la pagina php si trovava nella cartella /var/www/xss
 - Quello che viene fatto nello script è di andare a stampare il parametro name che viene passato come GET.
 - **riflessione dell'input**
-
 #### WFP - File include 1
 - SI consulti il codice sorgente 
 ```php
@@ -176,7 +175,7 @@
 - Quello che scopriamo andando nella configurazione globale /etc/php5/apache2/php.ini è che
 	- error_reporting = E_ALL & ~E_DEPRECATED
 	- display_errors = on
-- Sono abilitati tutti gli errori tranni quelli deprecati e sono stampati su STDOUT (insieme al codice HTML
+- Sono abilitati tutti gli errori tranne quelli deprecati e sono stampati su STDOUT (insieme al codice HTML
 #### WFP - SQL 1
 - Si consulti il codice sorgente
 ```php

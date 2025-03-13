@@ -1,0 +1,7 @@
+- Devo riguardare bene il tutto ma credo centri con create function
+	- guardare la documentazione
+- payload: }print(${$strings{4}});?>
+	- Studiarsela bene
+- Guardarsi il concetto di variabili variabili
+	- https://www.php.net/manual/en/language.variables.variable.php
+- 

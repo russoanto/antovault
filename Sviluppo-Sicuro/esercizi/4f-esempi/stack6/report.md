@@ -11,11 +11,12 @@
 # Indirizzo di buffer
 - Per individuarlo vado a mettere un brackpoint prima della gets dato che so che buffer viene passato come primo parametro e che quindi il sui indirizzo sarà nel registro eax
     - risultato: 0xb7f0186e 
-    - risultato: 0xbffffc8c
-    - \x6e\x18\xf0\xb7
+    - risultato: 0xbffffc9c
+    - \x9c\xfc\xff\xbf
 # Indirizzo di ret
 - nel codice vediamo come ret sia uguale a -0xc($ebp) questo significa che l'indirizzo si trova in $ebp - 12
     - risultato: 0xbffffccc
+    - risultato: 0xbffffcec
 
 
 # Payload corretto

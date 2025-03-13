@@ -18,7 +18,7 @@
 		- eXecute
 			- su un file significa che si può eseguire
 			- su una cartella significa che ci si può entrare
-### Rapresentazione dei permessi
+### Rappresentazione dei permessi
 - **Ottale**
 	- read -> 4
 	- write-> 2
@@ -44,7 +44,7 @@
 	- 2 (primo digit)
 	- s
 ### Privilegi di un processo in esecuzione
-- Un processo in esecuzione assume le credenziali (userID, groupID) si un utente
+- Un processo in esecuzione assume le credenziali (userID, groupID) di un utente
 - In condizioni **normali**(SETUID e SETGID disattivati) 
 	- UserID -> di chi ha lanciato il comando
 	- GroupID -> groupID primario di chi ha lanciato il comando
@@ -171,7 +171,7 @@
 - Trovato il binario la challeng è presto fatta
 ### Nebula - level01
 - con lo stesso comando vado a cercare un binario con SETUDI
-	- Lo trono nella cartella /home/flag01
+	- Lo trovo nella cartella /home/flag01
 ```c
 #include <stdlib.h>
 #include <unistd.h>

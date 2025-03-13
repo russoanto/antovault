@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "7cf2002f30c0dd73",
+        "id": "d320bda322f9c7ce",
         "type": "tabs",
         "children": [
           {
-            "id": "e20abc1ad7914b48",
+            "id": "b3f3c87b2e231cdc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sviluppo-Sicuro/4f - Input non controllato.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "4f - Input non controllato"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -40,7 +36,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Esplora risorse"
@@ -139,10 +136,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Sviluppo-Sicuro/4f - Input non controllato.md"
+                "file": "Cyberchalleng/Challeng/web_sec/302Camo.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Struttura di 4f - Input non controllato"
+              "title": "Struttura di 302Camo"
             }
           },
           {
@@ -172,55 +172,55 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "5503b37ee32cff88",
+  "active": "b3f3c87b2e231cdc",
   "lastOpenFiles": [
-    "HackerNews/38C3  Illegal Instructions.md",
-    "HackerNews",
-    "Università/Senza nome.canvas",
-    "Sviluppo-Sicuro/4f - Input non controllato.md",
-    "Università",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode_proof",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode.o",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack6/system.c",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack6/stack6-payload.py",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack6/Makefile",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/stack5-payload.py",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode_proof.c",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/shellcode.s",
-    "Sviluppo-Sicuro/4e - Corse critiche.md",
-    "Sviluppo-Sicuro/4c - Eccessiva verbosità.md",
-    "Sviluppo-Sicuro/L3 - Definizioni.md",
-    "Sviluppo-Sicuro/4d - Eccessiva esposizione asset.md",
-    "Sviluppo-Sicuro/4d - Eccessiva esposizione degli asset.md",
-    "Algoritmi distribuiti/TSP.md",
-    "Algoritmi distribuiti/Distributed Hash Tables.md",
-    "Algoritmi distribuiti/Faults and failures.md",
-    "Sviluppo_.md",
+    "Cyberchalleng/AD.md",
+    "Cyberchalleng/Challeng/web_sec/302Camo.md",
+    "Cyberchalleng/Challeng/web_sec/AdminAdmin.md",
+    "Cyberchalleng/Challeng/net_sec/NN.md",
+    "Cyberchalleng/Challeng/web_sec/PhpIsLove.md",
+    "IoT/CrowdSensing.md",
+    "IoT/IoT Scenario.md",
+    "IoT/Low power wide area network.md",
+    "IoT/Messaging Protocol.md",
+    "IoT/Task offloading.md",
+    "Cyberchalleng/XSS.md",
+    "Cyberchalleng/Challeng/web_sec/ZIpZap2.md",
+    "ImageScanner.md",
+    "Cyberchalleng/Challeng/net_sec",
+    "Cyberchalleng/Challeng/Senza nome.md",
+    "Cyberchalleng/Challeng/web_sec/NoSql.md",
+    "Cyberchalleng/Web Sec - Lezione 3-4.md",
+    "Cyberchalleng/Web Sec - Lezione 2.md",
+    "Cyberchalleng/Introduzione e info.md",
+    "Cyberchalleng/Challeng/web_sec/SSRF4.md",
+    "Cyberchalleng/Challeng/web_sec",
+    "Cyberchalleng/Challeng",
     "Algoritmi distribuiti/Routing Algorithms.md",
-    "Kernel Hacking/1- Rust.md",
-    "Kernel Hacking/OOPs.md",
-    "Kernel Hacking/Git.md",
-    "Kernel Hacking/Introduzione.md",
-    "2d_detection/Roadmap detection and traking.md",
-    "test.md",
-    "2d_detection/Tracker ETH.md",
+    "Algoritmi distribuiti/Lezione 1.md",
+    "Algoritmi distribuiti/Distributed Hash Tables.md",
+    "Algoritmi distribuiti/Branch&Bound.md",
+    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf",
+    "Sviluppo-Sicuro/4f - Input non controllato.md",
+    "Cyberchalleng/img/web/response.png",
+    "Cyberchalleng/img/web/Screenshot From 2025-02-19 16-27-29.png",
+    "Cyberchalleng/img/web/header.png",
+    "Cyberchalleng/img/web/Screenshot From 2025-02-19 16-23-40.png",
+    "Cyberchalleng/img/web",
+    "Cyberchalleng/img",
+    "Algoritmi distribuiti/TSP.md",
     "Algoritmi distribuiti/Sistemi Sincroni.md",
-    "2d_detection/Datmo_Refactor.md",
-    "IoT/AI on IoT.md",
-    "2d_detection/Scheletro.md",
-    "Algoritmi distribuiti/Leader Election.md",
-    "Algoritmi distribuiti/Teoria della computazione distribuita.md",
-    "Algoritmi distribuiti/Spanning Tree Construction.md",
+    "Algoritmi distribuiti/Cap43.2_IntrductionToAlgorithms.pdf",
+    "Algoritmi distribuiti/Cap34.1_IntroductioToAlgorithms.pdf",
+    "Cyberchalleng",
+    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/my_test5.py",
+    "Università/Senza nome.canvas",
     "IoT/img/mcs_tax.png",
     "IoT/img/Pasted image.png",
     "Untitled.canvas",
     "IoT/img/ampq.png",
     "IoT/img/qos.png",
     "IoT/img/mqtt_publish.png",
-    "IoT/img/mqtt_msg.png",
-    "IoT/img/mqtt.png",
-    "IoT/img/obs.png",
-    "IoT/img/coap_mssg.png",
-    "Automotive CYber Security/img/data_frame.png"
+    "IoT/img/mqtt_msg.png"
   ]
 }

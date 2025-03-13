@@ -1,0 +1,5 @@
+- Dopo tempo infinito passato a provare delle sql abbiamo scaoperto, anche grazie agli indizi, che non ci sono sql inj.
+- La vulnerabilità riguarda una caratteristica specifica di sql lite
+	-  Nello specifico vediamo che nelle varie query vengono utilizzati doppi apici ""
+	-  https://sqlite.org/lang_keywords.html
+- Riguardarsela meglio
