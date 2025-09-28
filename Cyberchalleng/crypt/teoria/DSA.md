@@ -1,0 +1,30 @@
+- Algoritmo di crittografia asimmetrica per la firma digitale
+- **Passaggi**
+	- Generazione delle chiavi
+		- q --> numero primo di d bit
+		- p --> numero primo tale che p = q*z+1 (z è un qualunque moltiplicatore) , deve essere di l bit dove 512 <= l <= 1024 (adesso siamo sulle 2048 in generale l%48 = 0)
+		- H appartenente a Z talche che 1 < H < p-1
+		- g in z --> g = h^z mod p > 1
+		- x random tale che 0 < x < q
+		- y = g^x mod p
+		- Kpub = <y,p,q,g>
+		- Kpriv = <x,>
+	- Firma di un messaggio
+		- concordare un algoritmo di hash h
+		- abbiamo un m da inviare
+		- k appartenente a Z (random e univoco): nonce
+		- r = (g^k mod p) mod p
+		- s = ((k^-1 mod q) x (h(m) + x * r))mod q
+		- r > 0 && s >0 
+		- firma = <m,r,s>
+	- Verifica della firma
+	- 0 < r < q && 0 < s < q --> se così non fosse devo rifiutare il messaggio
+	- w = s^-1 mod q
+	- u1 = (h(m) * w)mod q
+	- u2 = (r*w)mod q
+	- v = ((g^u1 * g^u2) mod p) mod q
+	- if v == r : firma ok
+- S*k = h(m) + x*r 
+- Vulnerabilità non spiegata nelle splide
+	- Anche se i k non sono uguali ma sono correlati allora posso comunque fare qualcosa
+- 

@@ -1,0 +1,2 @@
+- quando io vado ad inserire delle %s in una print ma senza dare i parametri quello che succede è che la printf va a recuperare l'indirizzo valido della stringa dallo stack pointer
+- 

@@ -1,0 +1,202 @@
+
+## High-speed CAN
+- Anche chiamato CAN-C
+- 125kBit/s to 1 MBit/s
+- Utilizzato per l'Engine-management system,Electronic trasmission control,Esp
+- Come funziona?
+	- **recessive:** delta V: 0V tra CAN High e Can Low 2.5V su entrambi i cavi
+	- **Dominant**: delta V: 2V 
+		- 3.5V CAN High
+		- 1.5V CAN Low
+## Low Speed CAN
+- Anche chiamato CAN-B
+- 5kBit/s to 125 Mbit/s
+- Utilizzato per
+	- finestrini
+	- tettuccio
+	- area condizionata
+- Come funziona
+	- **recessive**: delta V: 5V
+	- **dominant**: delta V: 2.2V
+## CAN Topology
+- Entrambe supportano sia bus che star
+## CAN Node architecture
+- **CAN Tranciever**: direttamente connesso al bus ed ha il compito di convertire i livelli di tensione in bit ed inviarli al CAN Controller
+	- Lavora al livello 1 dello stack ISO/OSI
+- **CAN Controller**: il suo scopo è il completamento del messaggio, control bus access, trasmissione e inoltro dei messaggi
+	- Lavora al livello 2 dello stack ISO/OSI
+- **Microcontroller**: applicativo software che ha il compito di comunicare con gli altri ECUs tramite messaggi via BUS
+	- Lavora ai livelli 3,4,5,6,7 dello stack ISO/OSI
+## CAN Bus: caratteristiche
+- **Multimaster**: tutti i nodi sono uguali, non si necessita di un supernodo
+- **Content base addressing**: I messaggi includono una label che identifica il contenuto del messaggio. Le ECUs non hanno un vero e proprio indirizzo, devono condividere lo stesso set di label
+- **Bus access**: l'accesso al bus è dato dall'arbitration. 
+	- Per evitare collisioni
+	- Se ci sono collisioni, il messaggio con priorità più alta passa, gli altri vengono persi
+	- La priorità è data dalla label
+## Arbitration
+- Il principio base dietro l'arbitration è 
+	- 1 --> recessive
+	- 0 --> dominant
+- Quando il bus è libero esso trasmette bit recessive
+- Tutti i CAN Frame iniziano con un bit dominante
+	- Ascoltando il bus tutte le ECU sanno che qualcuno ha iniziato a trasmettere un frame
+- Se due ECU trasmettono lo stesso livello (recessive o dominant), tutto è ok
+- Se una ECU trasmette il livello dominante e le altre trasmettono quello recessivo
+	- La ECU dominante vince il bus
+	- Le ECU che hanno provato a trasmettere recessive individuano la "collisione" e immediatamente smettono di trasmettere
+- In tutti i CAN Frame all'inizio è presente una label che è riferito al Frame ID
+	- La priorità si basa sull'ID del frame
+		- Più è basso l'id e più è alta la priorità
+## CAN Frames
+abbiamo diversi data frame:
+- Data frame: più comune con cui inviamo i dati veri e propri
+- Remote frame: non dovrebbe essere usato
+- Error frame: quando ho una collisione o qualsiasi cosa di strano
+- Overload Frame: quando inviamo troppi data frame allora può essere che una control unit non sia in grado di gestirla e quindi c'è un overload il che significa di aspettare un attimo prima di continuare con l'invio di data frame
+![[data_frame.png]]
+### Fields 
+- **SOF**:  start of frame, segna l'inizio del data/remoteframe
+	- fisso a 0 (dominant)
+	- da inizio al frame e alla fase di arbitration
+	- può essere inviato solamente se il bus è in idle
+- **Arbitration**: Include l'ID e il RTR( remote trasmission request)
+	- RTR: 
+		- 0 for data frame 
+		- 1 for remote frame
+- **Control**: Include informazioni sulla data size e lunghezza dell'message ID
+	- IDE: definisce quando il frame usa CAN 2.0A o  CAN 2.0B(extended)
+		- 0(dominant) per 2.0A
+	- r0: lasciato per utilizzi futuri
+		- sempre dominante
+	- DLC: data length code, indica il numero di bytes inclusi nel data field, solitamente tra 0 e 8 (ho 4 bit dedicati a questo valore quindi anche se ricevo un DLC > 8 mi aspetterò comunque di ricever 8 bytes)
+- **Data**: i dati che voglio trasmettere (non presenti nel remote frame)
+	- Al massimo 8 bytes
+- **CRC**: checksum
+	- Sequenza di 15 bit computati su 
+		- SOF
+		- Arbitration
+		- Control
+		- Data fileds
+	- Alla fine della sequenza c'è un bit aggiuntivo (recessive) per segnalare la terminazione del CRC
+- **Acknowledgment filed**: 
+	- Dopo la trasmissione del checksum viene tramsesso un valore recessive
+	- Allo stesso tempo il ricevente valida il checksum e mostra un livello dominante sul bus solo se il checksum è corretto
+	- Il sender aspetta di vedere un bit dominante sul bus durante l'ack slot, il che significa che almeno un ECU ha ricevuto correttamente  il messaggio
+	- Un reciever che detecta un errore nel CRC invierà un error frame 
+	- Alla fine verrà inviato un ack delimiter (recessive)
+- **EOF**: segna la fine di una data e remote frame (fix 7 bit rcessive)
+	- **IFS**: non è parte del messaggio, ma i nodi non possono iniziare a inviare frame uno dopo l'EOF, devono spettare un trasmission time di 3 bit prima che il bus troni idle(3 reessive bit)
+#### Data vs Remote
+- A data frame trasmette i dati veri e propri
+	- Può essere ricevuto da un qualsiasi numero di ECU, dipendentemente dal proprio ID
+- Un remote frame chiede per qualcuno che trasmetta dati
+- L'RTR fa parte dell'arbitration
+- Il remote frame non dovrebbe essere usato 
+	- CI possono essere delle possibili collisioni nel caso in cui due frame remoti vengano inviati con lo stesso ID ma con differenti valori di control field
+		- Dato che l'arbitration è limitato da ID+RTR significa che passeranno entrambi i dati provocando una collisione
+## Extended format: CAN 2.0B
+- 11 bit sono sufficienti per la maggior parte delle applicazioni automotive ma non per trucks e off-road
+- La soluzione adottata è quello di estendere gli id a 29 bit rimanendo compatibili con CAN 2.0B
+- Can standard e Can esteso coesistono 
+	- IDE: recessive per i frame nella versione estesa
+	- Significa che i frame extended perdono l'arbitration contro quelli standard
+	- SRR: Sobstitute remote request, sempre recessive, rimpiazza il RTR
+	- IDE: identifier extention
+	- 18 bit addizionali per l'estensione dell'ID seguito dal reale RTR
+## Bit Stuffing
+- Ogni ECU devono essere sincronizzate per capire quando ci sono i bit di terminazione dei frame e l'inizio degli altri
+	- Non devono essere sincronizzati per sapere quando trasmettere
+	- IN generale "gli angoli" aiutano a sincronizzare
+- Problemi:
+	- Il sender invia un messaggio con 30 bit consecutivi allo stesso livello(dominant o recessive)
+	- Il ricevente può essere confuso: sono 30, 29 o 31?
+	- cheap hw, cheap clock so bad sync
+- Possible solution: 
+	- Forzare al sender di cambiare il livello di trasmissione ogni tot di bit indipendentemente dal contenuto del messaggio --> **bit stuffing**
+- Nei CAN message non è possibile inviare più di 5 bit consecutivi allo stesso livello
+	- Forzare il sender ad inviare un bit opposto ogni 5 bit concordi
+	- Questo bit è aggiunto al contenuto originale
+- Reciver:
+	- conosce il bit stuffing
+	- aspetta di non ricevere mai 6 bit consecutivi concordanti
+		- può detectare un errore di comunicazione
+	- ignora il 6th opposite bit dopo 5 consecutivi e concordanti
+- **Corner case**:
+	- un bit di stuffing può causare la necessità di bit stuffing nel blocco successivo
+## Detecting Error
+- Bit monitoring: ascoltare mentre si parla
+	- errore se si sta ascoltando qualcosa di diverso da quello che si sta mandando
+- checksum:
+	- Il CRC computato non matcha con il CRC del frame
+- Violation of bit stuffing
+	- Più di 5 bit consecutivi e concordi
+- Frame consistency checks
+	- CRC delimiter, ACK delimiter , EOF,IFS dovrebbero sempre essere fissi a recessive
+- Acknowledgement
+	- nessuno capisce quello che ho mandato oppure non sono in grado di capire cosa le altre ECU hanno capito
+### Error frame
+- **error flag**: 6 bit dominanti 
+	- 6 viola il bit stuffing
+	- dominant --> viene ricevuto da tutte le ECU indipendentemente dalle altre trasmissioni sul BUS 
+	- tutte le ECU vedono che un'altra ECU ha inviato un error frame sul bus
+- **Error delimiter**:
+	- 8 recessive bit
+- Quando viene inviato un error frame?
+	- immediatamente ad eccezione dell'errore CRC
+	- Solo per gli CRC errors subito dopo l'ACK delimiter bit
+- Cosa succede sul bus?
+	- ECU individua un bit error
+	- Tutte le altre ECU individuano bit-stuffing error --> iniziano a trasmettere il flag d'errore
+	- Abbiamo un overlap di error flag sul bus
+	- tutte le ECU aspettano che sul bus ci siano 8 bit recessivi
+## Overload Frame
+- Come l'error frame chiede alle altre ECU di ritardare la trasmissione degli altri frame sul bus
+	- Inizia al primo bit di IFS --> c'è overwrite dell'IFS (recessive)
+- È utilizzato anche per riportare alcuni corner case error
+	- dominant bit durante i primi 2 bit di IFS
+	- dominant bit durante l'ultimo bit di EOF
+	- dominant bit durante l'ultimo bit dell'error delimiter o overload delimiter
+	- Parte subito dopo aver individuato il bit dominante
+- È sempre trasmesso tra EOF e IFS --> tra data/remote frames
+- Come per gli error frame ci possono essere overlap--> overload flag sul bus può essere più lungo di 6 bits
+## Fault confinement 
+- cosa succede se una faulty ECU continua a mandare error o overload frame sul bus?
+- Esempio:
+	- faulty ECU manda un messaggio malformato ma ad alta priorità sul bus
+		- i frame vengono abortiti causa errore ma le ECUs continuano a mandare i messaggi malformati vincendo l'arbitration
+	- faulty ECU riceve un messaggio ad alta priorità ben formato, ma lo interrompe riportando un errore.
+		- Le ECUs continuano a mandare questo messaggio ad alta priorità ma ugualmente vengono interrotti 
+- Gli errori possono essere permanenti
+- Gli ECUs con errori permanenti devono essere identificati
+- Dopo l'identificazione devono essere rimossi dal bus
+	- rimozione logica non fisica
+- Tutti i CAN Trancievers gestiscono 2 counter
+	- TEC: trasmitting error counter
+	- REC: recieving error counter
+	- in assenza di errori vengono decrementati
+- **ECU State**:
+	- Error active
+		- ECU partecipa alla comunicazione sul CAN bus senza restrizioni (invia e riceve frames)
+		- Necessita un REC <= 127 e un TEC <= 127
+	- Error passive:
+		- ECU può inviare e ricevere data e remote frames
+		- Invece di inviare un ben formato Error o overload frame, può solo inviare un error e overload flag --> lui può abortire i suoi frame ma non può interrompere i frame degli altri
+		- REC > 127 o TEC > 127 e TEC <= 255
+	- buss-off
+		- ECU non può partecipare alla comunicazione via bus (isolamento logico)
+		- Error counters non viene decrementato (non puoi uscire da questo stato)
+		- TEC > 255
+- Un difensore può provare a portare un ECU attaccante nel bus-off state --> può essere una reazione dopo una detection sul CAN bus
+- Un attaccante può provare a portare un ECU legittima nello stato di bus-off
+### Buss-off attack
+- causare errore ripetutamente generando interferenza e overwriting dei messaggi della vittima
+- L'attaccante manda un messaggio con stesso id allo stesso tempo ma con bit differenti nel control field
+- **Fasi**
+	- fase 1
+		- entrambi i nodi sono nello stato di **error active** 
+			- TEC's di entrambi cresce
+	- fase 2
+		- La vittima, che si trova nello stato di **error passive**
+			- significa che la vittima non può più abortire i messaggi della vittima ma solo i propri. Quindi la vittima continua a generare trasmission error
+		- Solo la TEC della vittima aumenta mandandola in **buss-off** (non può più parlare)

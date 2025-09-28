@@ -14,7 +14,9 @@ sudo wg-quick up file_config
 ```bash
 ansible-playbook vulnbox_deploy.yml -i "vulnbox," -u root --extra-vars "ansible_user=root ansible_password=<vulnbox password>" --extra-vars "@.env.json"
 ```
-- Ricordarsi di cambiare la password di ansible con quella di root inserita nel di configurazione dell'ambiente
+- Inserire come password della vulnbox quella che viene fornita nello zip (quella semplice per intenderci)
+- TODO: cambiare script ansible
+	- fare in modo che dopo che la password di root sia stata cambiata lo script utilizzi la nuova password  per le varie operazioni di root
 - Dopo ore di attesa i servizi dovrebbero essere up e accessibili
 	- S4D-Farm running on port 42069
 	- packmate 65000
@@ -43,3 +45,10 @@ print(ret.text, flush=True) # Ricordarsi la stampa con flash=True
 ./run_exploit.sh nome_exploit.py
 ```
 > IMPORTANTE rendere l'exploit eseguibile altrimenti può dare dei problemi e dare ai diversi exploit dei nomi identificativi visto che il suo nome verrà utilizzato da S4D farm per il filtraggio (avere gli stessi nomi crea confusione)
+
+```bash
+ssh -L 65007:127.0.0.1:65007 root@vulnbox
+```
+
+## Packmate
+- username: unimore

@@ -1,0 +1,4 @@
+- Tutto sta in due punti differenti
+	- SQL inj
+	- operatore == di php
+	- php magic hashes

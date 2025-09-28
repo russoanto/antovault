@@ -1,0 +1,66 @@
+- Cosa succede quando l'attaccante è all'interno della rete CAN del veicolo?
+	- Le OEM faticano a credere che sia possibile raggiungere la rete interna dall'esterno, senza un collegamento fisico
+	- Le vulnerabilità che abbiamo visto possono essere sfruttate da remoto via radio, bluetooth, wifi
+		- L'obiettivo è quello di dimostrare le vulnerabilità presenti sfruttando come vettori di attacco quelli sopra citati in modo da iniettare codice malevolo nel sistema CAN da remoto come se fossimo collegati fisicamente
+- Come posso connettermi al CAN bus ma senza utilizzare la porta fisica OBDII?
+	- Lettore CD dell'auto
+		- se si inserisce un CD con una struttura ISO9660 e un file chiamato mod, la ECU esegue in automatico un aggiornamento del firmware
+		- Basta quindi indurre un utente ad inserire un CD malevolo per ottenere un esecuzione di codice arbitrario
+		- Si può anche sfruttare la vulnerabilità del parsing di file audio .wma , file che vengono riprodotti correttamente da un PC ma che se parsati dal media player della macchina sfruttano un buffer overflow eseguendo codice arbitrario
+	- PassThru
+		- standard di comunicazione che consente reflashing ECU attraverso il CAN Bus
+		- È possibile collegare un PassThru device alla porta OBDII e fare il reflash delle ECUs
+			- Molti device PassThru non hanno autenticazione sulla rete locale
+				- se sono dal meccanico mi basta collegarmi alla rete locale dell'officina e inviare comandi al passthru
+				- Posso anche infettare direttamente il PassThru in modo tale che il codice malevolo venga replicato ad ogni vettura che viene collegato il PassThru
+	- Bluetooth
+		- Altri rischi sono dovuti al bluetooth, dato che, molte volte lo stack è vulnerabile a buffer overflow
+		- Strategie di attacco
+			- indirette
+				- Creare un app trojan che rileva il bluetooth vulnerabile e sfrutta buffer overflow
+			- dirette
+				- nel caso diretto il pairing può avvenire senza conferma da parte del guidatore 
+					- entrare nel bluetooth range e fare bruteforce del PIN
+					- a questo punto siamo collegati e possiamo sfruttare il Bluetooth stack per prendere il controllo di qualche ECU
+	- Cellular
+		- I veicoli, solitamente, hanno una ECU per le comunicazioni cellulari che includono Airbiquity aqLink in-band software modem
+			- Si è scoperto come il software che gestisce questi dati accetta pacchetti più lunghi di quanto dichiarato portando ad un buffer overflow
+			- Inoltre è possibile, chiamando la macchina, inviare comandi di configurazione senza autenticazione potendo anche estendere la durata delle chiamate
+				- questo è utile in quanto aqLink peremtte di trasmettere dati attraverso le chiamate vocali
+- Supponiamo di aver preso il controllo del CAN bus avendo compromesso una o più ECU, possiamo avere controllo remoto?
+	- ci basta una connessione remota con il veicolo
+		- il malware monitora il canale selezionato e aspetta un trigger dell'attacante
+- Infine quanto l'attacco cambia tra macchine differenti?
+- Metriche di valutazione di un attacco
+	- Presenza di cyber phisical features --> ADAS
+		- Alto impatto sulla sicurezza fisica
+	- Presenza di vettori di attacco wireless
+		- esposizione delle vulnerabilità da remoto
+	- Architettura della rete intra-veicolo piatta
+		- facilità dell'attaccante nel passare alla compromissione di un sottosistema critico
+- Viene mostrato uno studio comparativo su vari modelli di auto valutando per ciascuno 
+	- l'esposizione di vettori remoti
+	- presenza di ADAS (amplifica i rischi)
+	- Architettura interna della rete
+- Il risultato è una classifica qualitativa delle vulnerabilità
+	- tra i più sicuri troviamo Audi a8 2014
+		- ha tanti vettori di attacco remoti
+			- remote key entry
+			- bluetooth
+			- cellular 
+			- wifi
+		- Tra i vari ADAS abbiamo
+			- adaptive cruise control
+			- Active lane assist
+			- Audi pre sense
+		- Architettura di rete
+			- tanti segmenti
+			- buona segregazione tra i vari segmenti 
+			- i vari ADAS sono su segmaneti differenti rispetto ai vari vettori di attacco
+	- Tra i meno sicuri la Jeep Cherokee
+		- Primi due punti molto simile con l'audi
+		- Architettura di rete interna
+			- pochi segmenti
+			- Sfruttando alcuni vettori di attacco si può facilmente fare pivoting
+			- tante ECUs che controllano ADAS poco segregati
+- 

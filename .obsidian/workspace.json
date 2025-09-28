@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d320bda322f9c7ce",
+        "id": "551f1ed3714f6bd2",
         "type": "tabs",
         "children": [
           {
-            "id": "b3f3c87b2e231cdc",
+            "id": "ffc477b32af93f60",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "open_source/opensauced course.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "opensauced course"
             }
           }
         ]
@@ -160,7 +164,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,48 +176,48 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "b3f3c87b2e231cdc",
+  "active": "ffc477b32af93f60",
   "lastOpenFiles": [
+    "Algoritmi distribuiti/Cabri/NFS.md",
+    "open_source/opensauced course.md",
+    "open_source",
     "Cyberchalleng/AD.md",
-    "Cyberchalleng/Challeng/web_sec/302Camo.md",
-    "Cyberchalleng/Challeng/web_sec/AdminAdmin.md",
-    "Cyberchalleng/Challeng/net_sec/NN.md",
-    "Cyberchalleng/Challeng/web_sec/PhpIsLove.md",
-    "IoT/CrowdSensing.md",
-    "IoT/IoT Scenario.md",
-    "IoT/Low power wide area network.md",
-    "IoT/Messaging Protocol.md",
-    "IoT/Task offloading.md",
+    "Certego.md",
+    "Attacks Table.md",
+    "Cyberchalleng/Secure_sw/ROP.md",
+    "Cyberchalleng/Secure_sw/Pwntools.md",
+    "Cyberchalleng/Secure_sw/Lezione 30-04.md",
+    "Cyberchalleng/Secure_sw/Format String.md",
+    "Automotive Cyber Security/2 - Securing ECU.md",
+    "Automotive Cyber Security/1- Securing in vehicle networks.md",
+    "Automotive Cyber Security/2 - Securing in-vehicle networks.md",
+    "Automotive Cyber Security/Diagnostic Interfaces and protocols.md",
+    "Automotive Cyber Security/Getting on CAN bus.md",
+    "Automotive Cyber Security/Introduzione.md",
+    "Automotive Cyber Security/On Top of CAN.md",
+    "Automotive Cyber Security/Superficie d'attacco.md",
+    "Automotive Cyber Security/CAN Bus.md",
+    "Automotive Cyber Security/Crittografia.md",
+    "Automotive Cyber Security/1 - Securing ECU.md",
+    "Automotive Cyber Security/Domande.md",
+    "Automotive Cyber Security/Attacks over the can bus.md",
     "Cyberchalleng/XSS.md",
-    "Cyberchalleng/Challeng/web_sec/ZIpZap2.md",
-    "ImageScanner.md",
-    "Cyberchalleng/Challeng/net_sec",
-    "Cyberchalleng/Challeng/Senza nome.md",
-    "Cyberchalleng/Challeng/web_sec/NoSql.md",
-    "Cyberchalleng/Web Sec - Lezione 3-4.md",
-    "Cyberchalleng/Web Sec - Lezione 2.md",
-    "Cyberchalleng/Introduzione e info.md",
     "Cyberchalleng/Challeng/web_sec/SSRF4.md",
+    "Cyberchalleng/Challeng/web_sec/302Camo.md",
+    "Cyberchalleng/Challeng/web_sec/Beatbuddy.md",
+    "Cyberchalleng/AD - Nazionale",
+    "Cyberchalleng/Challeng/secure_sw",
+    "Cyberchalleng/Secure_sw",
+    "Cyberchalleng/crypt/challeng",
+    "Cyberchalleng/crypt/teoria",
+    "Cyberchalleng/crypt",
+    "Cyberchalleng/Challeng/net_sec",
     "Cyberchalleng/Challeng/web_sec",
     "Cyberchalleng/Challeng",
-    "Algoritmi distribuiti/Routing Algorithms.md",
-    "Algoritmi distribuiti/Lezione 1.md",
-    "Algoritmi distribuiti/Distributed Hash Tables.md",
-    "Algoritmi distribuiti/Branch&Bound.md",
-    "Algoritmi distribuiti/Anany Levitin - Introduction to the Design and Analysis of Algorithms (3rd Edition) (2012) (Pearson).pdf",
-    "Sviluppo-Sicuro/4f - Input non controllato.md",
     "Cyberchalleng/img/web/response.png",
     "Cyberchalleng/img/web/Screenshot From 2025-02-19 16-27-29.png",
     "Cyberchalleng/img/web/header.png",
     "Cyberchalleng/img/web/Screenshot From 2025-02-19 16-23-40.png",
-    "Cyberchalleng/img/web",
-    "Cyberchalleng/img",
-    "Algoritmi distribuiti/TSP.md",
-    "Algoritmi distribuiti/Sistemi Sincroni.md",
-    "Algoritmi distribuiti/Cap43.2_IntrductionToAlgorithms.pdf",
-    "Algoritmi distribuiti/Cap34.1_IntroductioToAlgorithms.pdf",
-    "Cyberchalleng",
-    "Sviluppo-Sicuro/esercizi/4f-esempi/stack5/my_test5.py",
     "Università/Senza nome.canvas",
     "IoT/img/mcs_tax.png",
     "IoT/img/Pasted image.png",

@@ -1,0 +1,122 @@
+- In questa parte analizzeremo come viene implementata la sicurezza nelle reti dei veicoli, passando da come si attacca a come ci si difende.
+- I principi fondamentali, che abbiamo già potuto intuire sono
+	- Segmentation
+	- Segregation
+	- Defense in depth
+- **Segmentazione**
+	- l'idea è dividere la rete del veicolo in più sottoreti indipendenti, dividendo le ECU ad alta criticità da quelle non critiche
+	- Attualmente la segmentazione avviene solo su una discriminante tecnica e non di sicurezza
+		- ECUs che richiedono una rete veloce saranno connessi o ad un Flexray o High speed CAN bus
+		- ECUs che richiedono reti più lente ed economiche verranno connesse a LIN o low-speed CAN bus
+	- la segmentazione da sola non basta, un attaccante può comunque muoversi lateralmente sfruttando ponti logici come i gateway
+- **Segregazione**
+	- applicazione di politiche di sicurezza ai punti di interconnessione
+		- Ad esempio si può stabilire che dalla porta OBDII  non devono arrivare CAN frame normali ma solo richieste diagnostiche UDS
+	- Con la segregazione si definiscono differenti domini di sicurezza, ognuno con le proprie politiche si sicurezza
+	- Tipologie
+		- **Network Based Segregation**
+			- significa limitazione del traffico
+			- solo un insieme di, ben definite, comunicazioni possono oltrepassare il punto di interesse
+				- definizione di regole di filtraggio  --> non devono limitare le funzionalità legittime
+		- **Corner Case**
+			- Due ECU su segmenti differenti dovrebbero poter scambiarsi tanti CAN frame e quindi avere la porta checkpoint sempre aperta --> rivedere la logica dell'applicazione
+			- Le politiche di sicurezza sono incompatibili con le implementazioni ADAS
+				- oggi --> rivedere le politiche di sicurezza
+				- domani --> cambiare le implementazioni ADAS
+	- Dove segregare?
+		- Non basta segregare i perimetri del nostro sistema
+			- si per l'attaccante risulta più complesso attaccare ma non hanno effetto per un attacco dall'interno e un movimento laterale
+- **Defense in Depth**
+	- La difesa perimetrale fallisce sempre
+	- Ci servono più layer di sicurezza
+		- Mitigare errori/buchi in un layer
+		- Mitigare gli effetti di una compromissione iniziale
+		- Mitigare gli effetti di una minaccia interna
+	- L'elemento tecnico che realizza la segregazione è il **secure gateway**
+## Secure Gateway
+- Nelle LAN tradizionali la segmentazione e segregazione viene raggiunta con 
+	- VLAN 
+	- firewall
+- Nel campo automotive è nato il concetto di secure gateway
+	- è semplicemente un "automotive firewall"
+- I 3 principi fondamentali sono
+	- Il firewall deve essere l'unico punto di contatto tra due differenti security domains
+	- Essere configurato con regole di filtraggio precise
+		- Stateful
+			- viene mantenuto uno stato interno
+		- Stateless
+			- nessuno stato viene salvato
+			- le decisioni vengono prese analizzando i singoli frames sulla base delle regole di filtraggio
+		- Le regole di filtraggio possono basarsi su 
+			- Open standard
+			- DBC
+				- si conoscono tutte le specifiche proprietarie
+		- Le casistiche che possono presentarsi sono
+			- Stateless + Open standard
+				- Rifiuto di ID non conosciuti o ID validi ma non per quel segmento
+					- mitiga movimento laterale
+				- Rifiuta frames con checksum (link.level) o DLC sbagliato
+			- Stateful + Open standard
+				- Tiene traccia delle sessioni ISO-TP, sessioni disgnostiche aperte e della frequenza degli ID (utile per evitare DoS) 
+				- Aiuta contro il fuzzing
+			- Stateles + DBC
+				- si usa la conoscenza della struttura CAN per filtrare i valori fuori range
+				- si controllano i checksum applicativi errati
+					- Utile per mitigare fuzzing e injection con dati malformati 
+					- non controlla la coerenza temporale o il contesto
+			- Stateful + DBC
+				- Combinazione più potente
+				- Può fare tutto quello che fa un firewall stateful open standar ma in più si possono rilevare contatori che non evolvevano correttamente 
+				- Bloccare comandi pericolosi fuori contesto 
+				- Questo è l'unico approccio realistico per proteggere gli ADAS, ma è molto costoso
+	- deve essere lui stesso protetto da attacchi (rappresenta un punto critico)
+## Monitoring
+- Passando alla fase di monitoring e detection parliamo degli IDS per reti CAN
+	- Sistemi che osservano continuamente il traffico CAN e rilevano attività anomale o sospette
+- Il loro funzionamento si basa su 2 principi
+	- le attività del sistema possono essere osservate
+	- le attività malevole possono essere distinte dalle attività legittime
+- Gli IDS per automotive si distinguono dai classici IT perchè devono girare su ECU (devono essere leggeri)
+	- Benefici attesi
+		- Piccola quantità di attacchi in vehicle conosciuti rispetto a quelli del mondo IT
+		- il traffico In-Vehicle è più predicibile dei pacchetti di rete IT
+		- L'approccio anomaly based dovrebbe essere più efficace in questo contesto
+	- Problemi Attesi
+		- **Semntica** dei messaggi CAN che è proprietaria e non standard
+		- I falsi positivi sono pericolosi
+- Gli approcci possibili sono 2
+	- **Firma**
+		- confronta i messaggi con un database di attacchi noti (non troverò degli zero-day)
+	- **Anomalie**
+		- costruisce un modello di comportamento normale e segnala ogni deviazione
+			- Efficace contro attacchi nuovi ma soggetto a falsi positivi
+- Come evadere un IDS?
+	- Negli ids con firma si possono raggirare modificando leggermente un attacco noto in modo che la firma non combaci più
+	- Negli ids ad anomalia è più ricercato l'attacco ma "basta" non discostarsi troppo dal modello di "comportamento" utilizzato 
+		- Se ad esempio ho un ids che basa il concetto di tranquillità in un range di frequenze allora l'attaccante può rimanere in quelle soglie ed eludere l'ids
+		- Attaccare con tanti falsi positivi
+- **Approccio basato su entropia**
+	- Gli algoritmi che si basano su entropia verificano se il traffico è regolare allora l'entropia è stabile. Se un attaccante replica un pacchetto esistente allora l'entropia decresce, se invece inietta un pacchetto con contenuto random (fuzzing) l'entropia cresce
+	- Se l'entropia cambia velocemente allora l'anomaly detection si attiva
+	- In generale questo approccio risulta valido con attacchi massicci, con attacchi meno voluminosi non abbiamo un gran variazione di entropia
+	- Per evitare questo problema si raggruppano i segnali in base al loro comportamento tipico e si costruiscono modelli statistici specifici per ciascun gruppo
+		- Questo ci permette di avere un anomaly detection più specifica evitando approcci ones size fit all
+	- I gruppi sono
+		- 1
+			- segnali continui e lenti
+				- variazioni piccole e gradulai come per i valori di temperatura dell'acqua
+			- segnali stabili con variazioni sporadiche
+				- restano fermi a lungo e cambiano drasticamente 
+				- posso contare quanti cambi di stato avvengono in un certo intervallo di tempo
+			- segnali dinamici
+				- hanno fluttuazioni complesse e richiedono modelli più sofisticati
+-  **Multi-tier**
+	- livelli di controllo 
+		- identificano frequenze irregolari in un traffico ciclico
+			- bus utilizzation
+		- se il counter del messaggio non evolve come previsto
+		- sessione di diagnostica con comandi invalidi ad alta velocità
+		- se il payload non ha senso, contiene valori fuori range
+		- dati malformati
+	- L'importanza di combinare i livelli sta nel fatto che ogni singolo livello ha  dei limiti, incrociando queste analisi riduco i falsi positivi e falsi negativi
+	- Questa è la strategia più promettente nel mondo automotive

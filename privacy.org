@@ -1,0 +1,112 @@
+* Teoria
+** Introduzione
+*** Aspetti sociologici dell'informatica
+- *Pervasività*
+  è un settore in perenne evoluzione. Oggi rappresenta una vera e propria rivoluzione, al pari della rivoluzione industriale, e di fatto è presente in tutti gli aspetti della vita
+- *Globalizzazione*
+  è un fenomeno globale. Coinvolge non solo tutti gli aspetti della vita, ma gli aspetti della vita di tutti, e quasi ovunque
+
+*** Diritti di libertà su internet
+- *Diritto all'accesso*
+  diritto di accedere alla rete in condizioni di parità. Implica l’eliminazione del digital divide e l’attivazione una copertura di rete ad alta velocità globale
+- *Neutralità della rete*
+  ogni persona ha diritto che il proprio traffico non subisca discriminazioni. Si vuole prevenire la formazione di monopoli
+- *Diritto all'eduzazione digitale*
+  diritto ad acquisire competenze conoscenze per navigare la rete in modo consapevole. La scuola è impegnata per prima in questo compito.
+- *Diritto alla privacy*
+  diritto alla protezione dei propri dati personali. Nasce in America come “ius excludendi alios”;
+  in Europa ha anche il carattere di ~autodeterminazione informativa~ (controllare/accedere ai dati, richiedere rettifiche/integrazioni, negare il consenso)
+- *Inviolabilità del domicilio informatico*
+  I sistemi informatici ed i nostri dati diventano inviolabili come un domicilio fisico.
+  No alla sorveglianza di massa indiscriminata ed accesso ai dati personali solo per fini di sicurezza, con l’autorizzazione dell’autorità giudiziaria e solo quando previsto dalla legge.
+- *Diritto all'oblio*
+  Diritto di cancellare dai motori di ricerca i propri dati personali che non abbiano più rilevanza.
+- *Diritto alla libertà in rete grazie a regole sovranazionali*
+  Cercare di rendere l’individuo libero da abusi di soggetti di maggiore forza
+- *Diritto e garanzie delle persone sulle piattaforme*
+  I responsabili di tali piattaforme devono comportarsi correttamente nei confronti degli utenti.
+- *Diritto alla sicurezza in rete*
+  Trasposizione in chiave virtuale della sicurezza fisica del cittadino
+*** Diritti alla privacy
++ *Privacy*
+  Il concetto è legato alla tutela dei dati, riguarda il diritto dell’individuo ad escludere altri dalla propria sfera delle informazioni che lo riguardano.
+  Ovvero è un principio di riservatezza dei dati.
+La privacy coinvolge due concetti diversi di libertà
++ *Libertà negativa*
+  Da intendere come riservatezza è la libertà di non subire interferenze nella propria vita privata, a sua volta distinta in:
+  - *Segretezza*
+    ovvero il diritto che informazioni personali NON siano conoscibili da terzi.
+  - *Riservatezza*
+    ovvero il diritto a che informazioni personali NON siano divulgate da chi ne sia ~legittimamente~ al corrente
++ *Libertà positiva*
+  ovvero il diritto ad esercitare il controllo sui propri dati personali essenzialmente in termini di loro disponibilità ed integrità.
+  Il che si può tradurre nel diritto di ~autodeterminazione informativa~.
+*** Cosa si intende per dati personali?
+Un ~dato~ è una semplice nozione, mentre un'~informazione~ è il frutto dell'elaborazione di dati per trarne conoscenza.
+Secondo il GDPR un ~dato personale~ è qualunue informazione riguardante una persona fisica che possa identificarla ~direttamente~ o ~indirettamente~.
+Chiunque possa essere identificato da questi dati viene definito ~interessato~.
+- *ART 9 GDPR e Dati Particolari*
+  Nome specifico di quelli che noi conosciamo come dati sensibili, nuove categorie di dati; la GDPR stabilisce che nel dubbio l’informazione va trattata come dato particolare per cui prevale la tutela
+  - *Dati particolari*
+    Dati che hanno garanzie superiori rispetto a quelli personali.
+I dati personali comuni possono essere trattati se c’è una base giuridica, quelli particolari non possono essere trattati a meno che non si ricada in determinate situazioni.
+
+*** Rischi nell’uso delle tecnologie – diritti libertà – sicurezza –
+La continua crescita delle tecnologie tende ad essere troppo rapida, non lasciando il tempo di immaginarne e comprendere i possibili impatti negativi.
+Così i cittadini vengono privati del loro diritto di decidere liberamente delle proprie vite.
+L’evoluzione tecnologica va di pari passo con la produzione di ~rischi sociali~.
+L’obiettivo di fondo della regolamentazione è quello di gestirli in modo che non venga ostacolato il progresso né vengano lese le libertà dei cittadini.
+È importante anche riconoscere il ~cyber crime~ come minaccia per i diritti. Se i computers sono protetti, anche i nostri diritti lo sono.
+Diritti di ~libertà~ e ~sicurezza~ vanno di pari passo, ma la regolamentazione ha l’importante compito di realizzare un equilibrio tra i due,
+perché l’eccesso dell’uno o dell’altro può sfociare in un danno ai diritti degli individui.
+**** Esempio: Caso del 2008
+Uno sconosciuto aveva pubblicato su Internet foto di un ragazzo di 12 anni nudo, con l’offerta di prestazioni sessuali da parte di questi.
+L’ISP aveva rifiutato di fornire informazioni sull’identità dello sconosciuto in quanto la normativa vigente in Finlandia non lo consentiva.
+La Corte Europea ha affermato che ~lo Stato ha fallito~ nel proteggere la vita privata del ragazzo, perché nella normativa non compariva una legge penale che consentisse di compiere effettive indagini.
+In sostanza, una normativa eccessivamente libertaria aveva leso proprio le libertà del cittadino.
+Può però accadere anche il viceversa: qualora la normativa prevedesse la raccolta di troppe informazioni sui cittadini, si rischierebbe uno stato di sorveglianza, a sua volta liberticida.
+
+*** Sentenza della Corte Costituzionale tedesca, 1983. Autodeterminazione. Chilling effect
+Una sentenza della Corte Costituzionale del 1983 afferma che un ordinamento sociale e giuridico in cui il cittadino sia all’oscuro di chi abbia informazioni su di lui,
+cosa si sappia, quando le informazioni sono state registrate e in che situazione si siano verificati gli atti,
+è incompatibile con il diritto di ~autodeterminazione informativa~.
+- *L'autodeterminazione informativa*
+  È il diritto di decidere in autonomia quali informazioni personali siano accessibili a terzi. Questo diritto garantisce ai cittadini il controllo sui propri dati
+  e sulla diffusione delle proprie informazioni, salvaguardandoli dall'invadenza di istituzioni o altre entità.
+Se l’individuo sapesse che la sua partecipazione ad una riunione oppure ad un’assemblea pubblica venisse registrata in maniera ufficiale,
+creando un pericolo per sé, potrebbe decidere di *non esercitare importanti diritti fondamentali*.
+Questo non solo limiterebbe la possibilità di sviluppo personale del singolo, ma anche del bene comune,
+perché l’autodeterminazione è un requisito fondamentale per una società libera e democratica.
+Questo fenomeno è anche detto ~chilling effect~, un effetto inibitorio derivante dalla consapevolezza di essere osservati
+
+*** Sicurezza e sorveglianza
+I governi degli Stati hanno il dovere di proteggere le libertà dei cittadini, così come la loro sicurezza.
+La sicurezza, potendo andare ad incidere su altri diritti di libertà deve essere ~rigorosamente disciplinata~ per legge ed essere soggetta a salvaguardie e condizioni,
+compreso il controllo giurisdizionale.
+La ~sicurezza~ si può trasformare in ~sorveglianza~, ad esempio quando le misure adottate per proteggere l'ordine pubblico o prevenire crimini includono la raccolta
+~massiva~ e ~indiscriminata~. Per evitare che questo accada, il controllo giurisdizionale deve intervenire imponendo vincoli precisi,
+come la necessità di autorizzazioni specifiche per l'uso di tecniche di sorveglianza e la possibilità di ricorso legale per chi ritiene lesi i propri diritti.
+
+** Capitolo 2 - Relazione Garante
+*** Relazione annuale del Garante Privacy: la protezione dei dati per un’innovazione antropocentrica
+La Relazione annuale è un documento ufficiale che il Garante pubblica ogni anno per informare il Parlamento e
+l’opinione pubblica sulle attività svolte nell’ambito di privacy e protezione dei dati personali.
+La relazione descrive lo stato dell’arte del settore, presenta fatti salienti avvenuti nell’anno precedente ed espone le future sfide.
+Ogni anno il nome della Relazione è diverso. Quest’anno si intitola: ~La Protezione dei Dati per un’Innovazione Antropocentrica~.
+Il titolo richiama in modo molto forte l’inaccettabilità di uno sviluppo della tecnologia senza regole;
+si devono considerare tutti i possibili impatti sull’uomo ed intervenire di conseguenza.
+Nel 2023 AI e big data hanno avuto un impatto tecnologico e sociale sempre maggiore, e questo tenderà a crescere negli anni a venire.
+Lo sviluppo tecnologico è così veloce da rendere difficile la valutazione di tutti i possibili rischi da esso derivanti.
+Il Diritto ha il compito di colmare questo vuoto per stabilire una governance della tecnologia.
+*** Tecnologie emergenti e privacy
+Senza un’opportuna regolamentazione, l’uso di tecnologie emergenti può ledere i diritti fondamentali, come quello alla riservatezza e alla autodeterminazione informativa.
+~AI act e GDPR~ sono il tentativo più avanzato dell’Europa di delineare una strategia antropocentrica di governo della tecnica.
+L’innovazione promossa dall’Europa è sostenibile ed attenta alle garanzie giuridiche, l’equità sociale e la dignità personale.
+L’Europa caratterizza la propria specificità rispetto gli approcci di quasi totale deregulation ed autoritarismo di USA e Cina/Corea.
+La protezione dei dati non è un ostacolo, ma una salvaguardia necessaria per bilanciare l’innovazione con i diritti individuali
+*** In che misura la protezione dei dati rappresenta un fattore di competitività?
+La protezione dei dati rappresenta un fattore di ~competitività~, perché attraverso le garanzie offerte ad utenti e clienti,
+a parità di servizi offerti, questi tendono naturalmente a scegliere un fornitore che protegge la loro privacy.
+Essere GDPR-compliant non è quindi solo un tema etico, ma anche una leva di carattere economico.
+Inoltre, qualora un’azienda decida di adottare un fornitore non-GDPR-compliant, sarà a sua volta categorizzata come non-GDPR-compliant.
+*** Il momento Oppenheimer.

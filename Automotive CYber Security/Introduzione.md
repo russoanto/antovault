@@ -1,1 +1,0 @@
-La materia è dedicata alla sicurezza di tutti quei veicoli che hanno componenti meccaniche controllate tramite una componente software.

@@ -1,0 +1,22 @@
+- prende input di lunghezza arbitraria e da in output un valore di lunghezza fissa
+- Se abbiamo un hash di 256 bit l'effettiva sicurezza è di 128 bit --> fare riferimento al paradosso del compleanno
+- 3 principali difficoltà
+	- dato un digest h deve essere trovare un messaggio tale che h = H(m)
+	- Dato un messaggio m1 dovrebbe essere difficile individuare un messaggio m2 != m1 tale che H(m1) = H(m2)
+	- completare
+- SHA
+	- riguardare lenght extentions attack
+		- devi avere chiave xor messaggio
+## Attacchi su numeri pseudo casuali
+- LCG: Linear congruential generator
+	- x =S x A + B % N --> he quindi è nel range [0, N-1]
+		- x_i
+	- Molto semplice ci sono le formule sulle slide
+### Mersenne Twister
+- Ottimo generatore di numeri randomici, presente in quasi tutti i linguaggi di programmazione
+- Ha 625 word(ogni word è di 32 bit)
+- Anche se è molto usato non è crittograficamente sicuro.
+- L'dea è di riuscire a prendere 624 input consecutivi
+	- Riusciamo a costruire lo stato interno del generatore
+- Esiste una libreria "untwister" per trovare lo stato interno di un generatore mersenne twister
+- 

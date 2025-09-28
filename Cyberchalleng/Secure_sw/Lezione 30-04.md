@@ -1,0 +1,13 @@
+## Definizioni
+- **Asset**: entità generica 
+	- Funzioni
+	- Prestazioni
+	- Sicurezza
+- **minaccia**: danno ad un asset
+	- non è una realtà, può capitare, se capita fa un danno grosso
+	- Microsoft utilizza **STRIDE**
+- Un difetto è una deviazione da requisiti e specifiche esibita da un asset
+- **Bug**: è un errore di implementazione
+	- nessuno si è inventato niente di nuovo ma ugualmente si è introdotto una vulnerabilità
+- **Debolezza**: difetto o bug che potrebbe rendere reale una minaccia
+- 

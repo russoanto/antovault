@@ -16,3 +16,6 @@ sudo make up
 ## NS_06
 - su node 1 
 	- iptables -t nat -A POSTROUTING -o eth0 --source 10.0.0.2 -j MASQUERADE
+## NS_1
+### NS_1.02
+- 
